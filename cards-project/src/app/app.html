@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <div class="cards-group">
+        <app-card [planType]="plans[0].type" [planPrice]="plans[0].price" [colorStyleCard]="plans[0].color"
+            (clickEmitter)="onButtonClick()"></app-card>
+        <app-card [planType]="plans[1].type" [planPrice]="plans[1].price" [colorStyleCard]="plans[1].color"
+            (clickEmitter)="onButtonClick()"></app-card>
+        <app-card [planType]="plans[2].type" [planPrice]="plans[2].price" [colorStyleCard]="plans[2].color"
+            (clickEmitter)="onButtonClick()"></app-card>
+    </div>
+</div>

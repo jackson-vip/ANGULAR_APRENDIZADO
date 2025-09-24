@@ -1,0 +1,27 @@
+.card {
+  max-width: 330px;
+  border-radius: 25px;
+  padding: 10px;
+
+  &__item {
+    padding: 10px;
+  }
+
+  &__plan {
+    font-size: 22px;
+  }
+
+  &__price {
+    font-size: 40px;
+  }
+
+  &--orange {
+    background-color: #ff5722;
+    color: white;
+  }
+
+  &--purple {
+    background-color: #5f408d;
+    color: white;
+  }
+}

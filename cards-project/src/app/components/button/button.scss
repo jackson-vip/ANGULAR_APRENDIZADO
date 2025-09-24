@@ -1,0 +1,35 @@
+.button {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 25px;
+  margin-top: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  &:active {
+    bottom: -2px;
+
+    &:disabled {
+      bottom: 0;
+    }
+  }
+
+  &:disabled {
+    background-color: #eee;
+    color: #bbb;
+    cursor: not-allowed;
+  }
+
+  &--white {
+    background-color: white;
+  }
+
+  &--purple {
+    background-color: #926cce;
+    color: white;
+  }
+}
