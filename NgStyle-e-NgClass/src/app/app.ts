@@ -41,4 +41,16 @@ export class App {
       'font-size.px': this.fontSize
     };
   }
+
+  /** Estudo de caso do NgClass: 
+  */
+  isGreen: boolean = true;
+
+  setToGreen() {
+    this.isGreen = true;
+  }
+
+  setToOrange() {
+    this.isGreen = false;
+  }
 }

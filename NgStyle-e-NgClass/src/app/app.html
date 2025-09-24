@@ -1,3 +1,5 @@
+<h1>Estudando o ngStyle</h1>
+<hr>
 <!-- No primeiro h1, vemos que o ngStyle mantem o track das propriedades que estao sendo aplicadas
     e atualiza apenas a propriedade que foi alterada. 
 -->
@@ -40,3 +42,50 @@
 
 <button (click)="increaseFontSize()">A+</button>
 <button (click)="toggleFontColor()">{{ buttonText }}</button>
+
+<br><br>
+<h1>Estudando o ngClass</h1>
+<hr>
+
+<!-- O ngClass aceita mais de uma classe -->
+<h1
+  [ngClass]="{
+    'is-big is-green': isGreen,
+    'is-orange': !isGreen,
+  }">
+  Sou um H1
+</h1>
+
+<!-- O class não aceita mais de uma classe -->
+<h1
+  [class]="{
+    'is-green': isGreen,
+    'is-orange': !isGreen,
+  }">
+  Sou um H1
+</h1>
+
+<br>
+
+<button (click)="setToGreen()">Verde</button>
+<button (click)="setToOrange()">Laranja</button>
+
+<!-- String -->
+<h4>String</h4>
+<h1 [ngClass]="'is-big is-green'">Sou um H1</h1>
+<h1 [class]="'is-big is-green'">Sou um H1</h1>
+
+<!-- Array -->
+<h4>Array</h4>
+<h1 [ngClass]="['is-big', 'is-green']">Sou um H1</h1>
+<h1 [class]="['is-big', 'is-green']">Sou um H1</h1>
+
+<!-- Objeto -->
+<h4>Objeto</h4>
+<h1 [ngClass]="{ 'is-big is-green': isGreen, 'is-orange': !isGreen }">Sou um H1</h1>
+<h1 [class]="{ 'is-big': isGreen, 'is-green': isGreen, 'is-orange': !isGreen }">Sou um H1</h1>
+
+<!-- Class binding -->
+<h4>Class Binding</h4>
+<h1 [ngClass]="{'is-green': isGreen}">Sou um H1</h1>
+<h1 [class.is-green]="isGreen">Sou um H1</h1>
