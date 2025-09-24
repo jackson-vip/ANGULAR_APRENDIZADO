@@ -1,4 +1,4 @@
-<div align="center">
+o <div align="center">
 
   <img src="https://angular.io/assets/images/logos/angular/angular.png" width="100"/>
 
@@ -117,9 +117,133 @@ Técnicas para vinculação de dados entre o componente e a view:
 | **Css Class Binding** | Adiciona ou remove classes CSS dinamicamente | `[class.classe]="condicao"` |
 | **Style Binding** | Aplica estilos CSS inline dinamicamente | `[style.propriedade]="valor"` |
 
-### Decorators Importantes
+### 📚 Decorators Importantes
 
 | Decorator | Descrição | Uso Comum |
 |-----------|-----------|------------|
 | **`@Input`** | Permite que um componente receba dados de seu componente pai | Passar dados para componentes filhos |
 | **`@Output`** | Permite que um componente envie eventos para seu componente pai | Emitir eventos para componentes pais |
+
+### 🎨 Styling Dinâmico - ngStyle e ngClass
+
+Técnicas avançadas para manipulação dinâmica de estilos e classes CSS:
+
+#### 🖌️ NgStyle - Manipulação de Estilos
+
+| Abordagem | Sintaxe | Quando Usar | Performance |
+|-----------|---------|-------------|-------------|
+| **[ngStyle] objeto inline** | `[ngStyle]="{'color': cor, 'font-size': tamanho}"` | Múltiplos estilos condicionais | ⭐⭐⭐ Boa |
+| **[style] individual** | `[style.color]="cor" [style.font-size.px]="tamanho"` | Propriedades específicas | ⭐⭐⭐⭐⭐ Excelente |
+| **[style] string** | `[style]="'color: red; font-size: 16px;'"` | Estilos dinâmicos via string | ⭐⭐ Regular |
+| **[ngStyle] objeto** | `[ngStyle]="stylesObject"` | Estilos complexos e reutilizáveis | ⭐⭐⭐ Boa |
+
+#### 🏷️ NgClass - Manipulação de Classes
+
+| Abordagem | Sintaxe | Quando Usar | Recomendação |
+|-----------|---------|-------------|--------------|
+| **[class.nome] individual** | `[class.active]="isActive"` | 1-2 classes simples | ✅ **RECOMENDADO** |
+| **[ngClass] objeto** | `[ngClass]="{'active': isActive, 'disabled': !enabled}"` | 3+ classes condicionais | ✅ Para lógica complexa |
+| **[ngClass] array** | `[ngClass]="['class1', 'class2']"` | Classes dinâmicas | ✅ Para arrays computados |
+| **[ngClass] string** | `[ngClass]="'class1 class2'"` | Classes estáticas via binding | ⚠️ Use `class` comum |
+| **[ngClass] método** | `[ngClass]="getClasses()"` | Lógica complexa no component | ✅ **MELHOR PRÁTICA** |
+
+#### 🔍 Comparação de Performance
+
+```typescript
+// 🚀 MAIS RÁPIDO - Angular otimiza internamente
+[class.active]="condition"
+
+// 🐌 MAIS LENTO - Processa objeto inteiro a cada mudança
+[ngClass]="{ 'active': condition }"
+```
+
+#### 💡 Melhores Práticas
+
+| Cenário | Solução Recomendada | Exemplo |
+|---------|-------------------|---------|
+| **Classe única** | `[class.nome]` | `[class.active]="isActive"` |
+| **2-3 classes relacionadas** | `[ngClass]` objeto | `[ngClass]="{'btn btn-primary': isPrimary}"` |
+| **Lógica complexa** | `[ngClass]` método | `[ngClass]="getButtonClasses()"` |
+| **Estilo único** | `[style.propriedade]` | `[style.color]="textColor"` |
+| **Múltiplos estilos** | `[ngStyle]` objeto | `[ngStyle]="getStyles()"` |
+
+#### ⚠️ Pontos Importantes
+
+- **Change Detection**: NgStyle/NgClass fazem track de mudanças, objetos precisam ser reinstanciados
+- **Performance**: Binding individual `[class.x]` e `[style.x]` são mais performáticos
+- **Flexibilidade**: NgClass/NgStyle oferecem mais opções mas com overhead
+- **Legibilidade**: Binding individual torna a intenção mais clara no template
+
+## 🚀 Projetos Práticos
+
+### 📁 Estrutura dos Estudos
+
+| Projeto | Foco de Estudo | Status | Conceitos Aplicados |
+|---------|----------------|--------|---------------------|
+| **NgIf/** | Diretivas Condicionais | ✅ Concluído | `*ngIf`, `@if` (Angular 17+), renderização condicional |
+| **NgFor/** | Diretivas de Repetição | ✅ Concluído | `*ngFor`, `@for` (Angular 17+), iteração de arrays |
+| **two-way-data-binding/** | Vinculação Bidirecional | ✅ Concluído | `[(ngModel)]`, formulários, binding duplo |
+| **NgStyle-e-NgClass/** | Styling Dinâmico | ✅ Concluído | `[ngStyle]`, `[ngClass]`, `[class]`, `[style]` |
+| **project-components/** | Arquitetura de Componentes | ✅ Concluído | Comunicação entre componentes, módulos |
+| **cards-project/** | Projeto Integrado | 🔄 Em andamento | Aplicação prática de todos os conceitos |
+
+### 📈 Cronograma de Aprendizado
+
+#### ✅ **Fase 1: Fundamentos (Concluída)**
+
+- [x] Setup e CLI do Angular
+- [x] Criação de componentes e módulos  
+- [x] View Encapsulation e seletores
+- [x] Manipulação do DOM
+- [x] Arquitetura de componentes
+
+#### ✅ **Fase 2: Diretivas e Binding (Concluída)**
+
+- [x] Diretivas estruturais (`*ngIf`, `*ngFor`)
+- [x] Nova sintaxe Angular 17+ (`@if`, `@for`)
+- [x] Data Binding (Interpolation, Property, Event, Two-way)
+- [x] Decorators `@Input` e `@Output`
+
+#### ✅ **Fase 3: Styling Avançado (Concluída)**
+
+- [x] NgStyle vs Style Binding
+- [x] NgClass vs Class Binding
+- [x] Comparações de performance
+- [x] Melhores práticas de styling
+
+#### 🔄 **Fase 4: Em Andamento**
+
+- [ ] Formulários (Template-driven vs Reactive)
+- [ ] Validações de formulário
+- [ ] Services e Dependency Injection
+- [ ] HTTP Client e APIs
+
+#### 📋 **Fase 5: Planejada**
+
+- [ ] Routing e navegação
+- [ ] Guards e resolvers
+- [ ] Observables e RxJS
+- [ ] State Management
+
+### 🎯 **Estatísticas do Aprendizado**
+
+- **📚 Conceitos dominados:** 15+
+- **🏗️ Projetos criados:** 6
+- **⏱️ Tempo de estudo:** ~3 semanas
+- **📈 Progresso geral:** 60% dos fundamentos
+- **🎖️ Nível atual:** Intermediário iniciante
+
+### 🏆 **Conquistas Recentes**
+
+- ✅ Domínio completo de diretivas estruturais
+- ✅ Entendimento profundo de data binding
+- ✅ Expertise em styling dinâmico 
+- ✅ Arquitetura modular bem estruturada
+- ✅ Aplicação das melhores práticas do Angular
+
+### 🎯 **Próximos Objetivos**
+
+1. **Formulários Reativos** - Implementar validações complexas
+2. **Services** - Criação de serviços reutilizáveis  
+3. **HTTP** - Consumo de APIs REST
+4. **Routing** - Sistema de navegação completo
