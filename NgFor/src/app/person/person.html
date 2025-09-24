@@ -1,0 +1,14 @@
+<div class="item"
+    [class.item--highlighted]="isSelected" 
+    [class.item--odd]="isOdd" 
+    [class.item--even]="isEven"
+    (click)="selectPerson()">
+    <p class="item__name">{{ personSelectIndex }} - {{ personName }}</p>
+    <p class="item__age">{{ personAge }} anos</p>
+    @if(isFirst){
+        <p style="color: red">É o primeiro</p>
+    }
+    @if(isLast){
+        <p style="color: yellow">É o último</p>
+    }
+</div>

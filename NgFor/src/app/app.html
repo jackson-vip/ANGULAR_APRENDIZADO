@@ -1,18 +1,35 @@
-<!-- Sintaxe que será descontinuada, mas bastante utilizada
+<!-- 
+ Sintaxe que será descontinuada, mas bastante utilizada
  em projetos legados. 
  -->
-<div class="list">
-  <div class="item"
-    *ngFor="let person of listPeople; let i = index; let isOdd = odd; let isEven = even; let isFirst = first; let isLast = last"
-    [class.item--highlighted]="personSelectIndex === i" [class.item--odd]="isOdd" [class.item--even]="isEven"
-    [class.item--first]="isFirst" [class.item--last]="isLast"
-    (click)="selectPerson(i)">
-    <p class="item__name">{{ i }} - {{ person.nome }}</p>
-    <p class="item__age">{{ person.idade }} anos</p>
-  </div>
-</div>
 
-<br><br>
+<!-- 
+ Descomente o código a baixo para ver a sistaxe antiga e 
+comparar com a nova. Não esqueça de comentar o código novo
+para evitar erros de compilação. 
+-->
+<!--
+<div class="list">
+  <app-person
+  *ngFor="
+  let person of listPeople; 
+  let i = index;
+  let isOdd = odd;
+  let isEven = even;
+  let isFirst = first;
+  let isLast = last;"
+  [personName]="person.nome"
+  [personAge]="person.idade"
+  [personSelectIndex]="i"
+  [isSelected]="personSelectIndex === i"
+  [isOdd]="isOdd"
+  [isEven]="isEven"
+  [isFirst]="isFirst"
+  [isLast]="isLast"
+  (onSelectPersonEmit)="selectPerson($event)"
+  ></app-person>
+</div> 
+-->
 
 <!-- Nova Sintaxe do Angular 17+ -->
 <!-- 
@@ -31,3 +48,41 @@
   <p>Nenhuma pessoa encontrada</p>
 } 
 -->
+
+<!-- 
+Nova Sintaxe do Angular 17+ 
+Porém utilizando o componente Person para componentizar a aplicação.
+É uma boa prática componentizar a aplicação para manter o código
+mais organizado e reutilizável.
+-->
+@for (
+  person of listPeople; 
+  track person.nome + person.idade;
+  let i = $index; 
+  let isOdd = $odd; 
+  let isEven = $even; 
+  let isFirst = $first; 
+  let isLast = $last
+) {
+  <app-person
+    [personName]="person.nome"
+    [personAge]="person.idade"
+    [personSelectIndex]="i"
+    [isSelected]="personSelectIndex === i"
+    [isOdd]="isOdd"
+    [isEven]="isEven"
+    [isFirst]="isFirst"
+    [isLast]="isLast"
+    (onSelectPersonEmit)="selectPerson(i)"
+  ></app-person>
+} @empty {
+  <p>Nenhuma pessoa encontrada</p>
+}
+
+<!-- 
+  O uso do track é opcional, mas recomendado para melhorar a performance
+  de listas grandes. Ele ajuda o Angular a identificar quais itens foram
+  adicionados, removidos ou movidos na lista, evitando a recriação desnecessária
+  de elementos DOM. É especialmente útil quando os itens da lista possuem
+  propriedades únicas que podem ser usadas como identificadores. 
+ -->
