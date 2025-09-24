@@ -1,0 +1,37 @@
+@use 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.card-roxo {
+    max-width: 350px;
+    background-color: #ede1ff;
+    border-radius: 25px;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+
+     &__item {
+        padding: 10px;
+    }
+
+    &__plan {
+        font-size: 22px;
+    }
+
+    &__price {
+        font-weight: 600;
+        font-size: 40px;
+    }
+
+    &__button {
+        font-size: 16px;
+        text-align: center;
+        margin-top: 10px;
+        background-color: #a056d9;
+        border-radius: 25px;
+        cursor: pointer;
+
+    }
+}
+
+:host ::ng-deep .mdc-slider__track--active_fill {
+    border-color: variables.$bgColorTwo !important;
+}

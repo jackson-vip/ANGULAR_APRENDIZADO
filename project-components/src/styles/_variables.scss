@@ -1,0 +1,6 @@
+$bgColorOne: #ff7e5f;
+$bgColorTwo: #4ee1a0;
+
+.mdc-slider__track--active_fill {
+    border-color: $bgColorOne !important;
+}
