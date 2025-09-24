@@ -1,0 +1,42 @@
+<!-- No primeiro h1, vemos que o ngStyle mantem o track das propriedades que estao sendo aplicadas
+    e atualiza apenas a propriedade que foi alterada. 
+-->
+<h1 [ngStyle]="{'color': textColor, 'font-size': fontSize + 'px'}">
+  Sou um h1 [ngStyle]
+</h1>
+
+<br>
+
+<!-- No segundo h1, estamos usando style binding. 
+     A diferença é que aqui, o Angular não faz o track das propriedades, 
+     ele apenas atualiza a propriedade que foi alterada.
+-->
+
+<h1 [style.font-size.px]="fontSize" [style.color]="textColor">
+  Sou um h1 [style Binding]
+</h1>
+
+<br>
+
+<!-- No terceiro h1, estamos usando style binding com uma string. 
+     Aqui, o Angular não faz o track das propriedades, 
+     ele apenas atualiza a propriedade que foi alterada.
+-->
+
+<h1 [style]="stylesString">
+  Sou um h1 [Property Binding com string]
+</h1>
+
+<br>
+
+<!-- No quarto h1, estamos usando ngStyle com um objecto. 
+    Para mudar os valores do objecto e precisamos instanciar um novo objecto,
+    pois o Angular não faz o track das propriedades do objecto.
+-->
+
+<h1 [ngStyle]="stylesObject">
+  Sou um h1 [ngStyle] com objecto
+</h1>
+
+<button (click)="increaseFontSize()">A+</button>
+<button (click)="toggleFontColor()">{{ buttonText }}</button>
