@@ -1,4 +1,4 @@
-o <div align="center">
+<div align="center">
 
   <img src="https://angular.io/assets/images/logos/angular/angular.png" width="100"/>
 
@@ -185,7 +185,8 @@ Técnicas avançadas para manipulação dinâmica de estilos e classes CSS:
 | **two-way-data-binding/** | Vinculação Bidirecional | ✅ Concluído | `[(ngModel)]`, formulários, binding duplo |
 | **NgStyle-e-NgClass/** | Styling Dinâmico | ✅ Concluído | `[ngStyle]`, `[ngClass]`, `[class]`, `[style]` |
 | **project-components/** | Arquitetura de Componentes | ✅ Concluído | Comunicação entre componentes, módulos |
-| **cards-project/** | Projeto Integrado | 🔄 Em andamento | Aplicação prática de todos os conceitos |
+| **cards-project/** | Projeto Integrado | ✅ Em andamento | Aplicação prática de todos os conceitos |
+| **Pipes/** | Criação de Pipes Customizados | ✅ Concluído | Pipes nativos e personalizados |
 
 ### 📈 Cronograma de Aprendizado
 
@@ -210,6 +211,7 @@ Técnicas avançadas para manipulação dinâmica de estilos e classes CSS:
 - [x] NgClass vs Class Binding
 - [x] Comparações de performance
 - [x] Melhores práticas de styling
+- [x] Pipes nativos e customizados
 
 #### 🔄 **Fase 4: Em Andamento**
 
@@ -237,7 +239,7 @@ Técnicas avançadas para manipulação dinâmica de estilos e classes CSS:
 
 - ✅ Domínio completo de diretivas estruturais
 - ✅ Entendimento profundo de data binding
-- ✅ Expertise em styling dinâmico 
+- ✅ Expertise em styling dinâmico
 - ✅ Arquitetura modular bem estruturada
 - ✅ Aplicação das melhores práticas do Angular
 
