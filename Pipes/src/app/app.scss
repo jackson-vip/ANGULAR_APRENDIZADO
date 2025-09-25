@@ -1,0 +1,33 @@
+.active {
+    color: green;
+}
+
+.inactive {
+    color: red;
+}
+
+.pending {
+    color: orange;
+}
+
+.default {
+    color: black;
+}
+
+.group-status {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    & h4 {
+        margin: 4px;
+    }
+}
+
+.meuStatus {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: currentColor;
+}

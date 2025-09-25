@@ -1,0 +1,122 @@
+<!-- Estudando os pipes no Angular -->
+<!-- https://angular.io/guide/pipes -->
+
+<!-- OS PIPES NATIVOS DO ANGULAR SÃO:
+- DatePipe » formata datas
+- UpperCasePipe » transforma texto em maiúsculas
+- LowerCasePipe » transforma texto em minúsculas
+- CurrencyPipe » formata valores monetários
+- DecimalPipe » formata números decimais
+- PercentPipe » formata porcentagens
+- JsonPipe » transforma objetos em strings JSON
+- SlicePipe » extrai uma fatia de um array ou string
+- AsyncPipe » lida com Observables e Promises
+- TitleCasePipe » transforma texto em formato de título
+- I18nPluralPipe » exibe conteúdo com base em pluralização
+- I18nSelectPipe » exibe conteúdo com base em seleção
+- KeyValuePipe » transforma objetos em arrays de pares chave-valor
+-->
+
+<h1>Estudando Pipes no Angular</h1>
+<hr>
+<h2>Pipes Nativos do Angular</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>Pipe</th>
+    <th>Descrição</th>
+    <th>Exemplo</th>
+  </tr>
+  <tr>
+    <td>DatePipe</td>
+    <td>Formata datas</td>
+    <!-- Temos o fullDate, o longDate, o mediumDate e o shortDate -->
+    <td>Data de hoje: {{ hoje | date:'fullDate' }}</td>
+  </tr>
+  <tr>
+    <td>UpperCasePipe</td>
+    <td>Transforma texto em maiúsculas</td>
+    <td>{{ texto | uppercase }}</td>
+  </tr>
+  <tr>
+    <td>LowerCasePipe</td>
+    <td>Transforma texto em minúsculas</td>
+    <td>{{ texto | lowercase }}</td>
+  </tr>
+  <tr>
+    <td>CurrencyPipe</td>
+    <td>Formata valores monetários</td>
+    <!-- Temos o formato padrão, o formato com símbolo e o formato sem símbolo -->
+    <td>{{ 1234.56 | currency:'BRL':'symbol' }}</td>
+  </tr>
+  <tr>
+    <td>DecimalPipe</td>
+    <td>Formata números decimais</td>
+    <!-- O formato é: {mínimo de dígitos inteiros}.{mínimo de dígitos fracionários}-{máximo de dígitos fracionários} -->
+    <td>{{ 9876543.21098 | number:'1.2-2' }}</td>
+  </tr>
+  <tr>
+    <td>PercentPipe</td>
+    <td>Formata porcentagens</td>
+    <!-- O formato é: {mínimo de dígitos inteiros}.{mínimo de dígitos fracionários}-{máximo de dígitos fracionários} -->
+    <td>{{ 0.756 | percent:'1.1-1' }}</td>
+  </tr>
+  <tr>
+    <td>JsonPipe</td>
+    <td>Transforma objetos em strings JSON</td>
+    <td>
+      <pre>{{ jsonPipe | json }}</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>SlicePipe</td>
+    <td>Extrai uma fatia de um array ou string</td>
+    <td>Array: {{ array | slice:1:4 }}<br>String: {{ texto | slice:0:5 }}</td>
+  </tr>
+  <tr>
+    <td>AsyncPipe</td>
+    <td>Lida com Observables e Promises</td>
+    <!-- Vamos usar sempre que precisarmos lidar com dados assíncronos -->
+    <td>Observable: {{ observableData | async }}<br>Promise: {{ promiseData | async }}</td>
+  </tr>
+  <tr>
+    <td>TitleCasePipe</td>
+    <td>Transforma texto em formato de título</td>
+    <td>{{ texto | titlecase }}</td>
+  </tr>
+  <tr>
+    <td>I18nPluralPipe</td>
+    <td>Exibe conteúdo com base em pluralização</td>
+    <td>{{ pessoas.length | i18nPlural: pluralMapping }}</td>
+  </tr>
+  <tr>
+    <td>I18nSelectPipe</td>
+    <td>Exibe conteúdo com base em seleção</td>
+    <td>{{ genero | i18nSelect: generoMapping }}</td>
+  </tr>
+  <tr>
+    <td>KeyValuePipe</td>
+    <td>Transforma objetos em arrays de pares chave-valor</td>
+    <td>
+      <pre>{{ pessoas | keyvalue | json }}</pre>
+    </td>
+  </tr>
+</table>
+<br>
+<hr>
+<div class="group-status">
+  <h4 [class]="userStatus[0].status | statusClass">User Status Active</h4>
+  <span class="meuStatus" [class]="userStatus[0].status | statusClass"></span>
+</div>
+<div class="group-status">
+  <h4 [class]="userStatus[1].status | statusClass">User Status Inactive</h4>
+  <span class="meuStatus" [class]="userStatus[1].status | statusClass"></span>
+</div>
+<div class="group-status">
+  <h4 [class]="userStatus[2].status | statusClass">User Status Pending</h4>
+  <span class="meuStatus" [class]="userStatus[2].status | statusClass"></span>
+</div>
+<div class="group-status">
+  <h4 [class]="userStatus[3].status | statusClass">User Status Default</h4>
+  <span class="meuStatus" [class]="userStatus[3].status | statusClass"></span>
+</div>
