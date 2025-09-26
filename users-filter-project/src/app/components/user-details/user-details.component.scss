@@ -1,0 +1,6 @@
+// O :host é usado para garantir que o estilo seja aplicado apenas ao componente atual
+// O ::ng-deep é necessário para penetrar o encapsulamento de estilos do Angular Material
+:host ::ng-deep #user-details-list .title-detail-user .mdc-list-item__primary-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
