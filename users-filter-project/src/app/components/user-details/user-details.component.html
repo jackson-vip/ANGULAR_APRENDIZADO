@@ -1,19 +1,42 @@
-<mat-list role="list" id="user-details-list">
-    <mat-list-item class="title-detail-user">Detalhes do Usuário</mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item role="listitem">
-        <span class="detail-label">Nome:</span><span>Fulano</span>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item role="listitem">
-        <span class="detail-label">Email:</span><span>fulano@example.com</span>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item role="listitem">
-        <span class="detail-label">Telefone:</span><span>(11) 99999-9999</span>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item role="listitem">
-        <span class="detail-label">Endereço:</span><span>Rua Exemplo, 123, Cidade, País</span>
-    </mat-list-item>
-</mat-list>
+<div class="user-details">
+    <mat-list role="list" id="user-details-list">
+        <mat-list-item class="u-text-align-center">Detalhes do Usuário</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Nome:</span><span>{{ user.nome }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Email:</span><span>{{ user.email }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Telefone:</span><span>{{ user.telefone ? (user.telefone | phoneNumber) : '' }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Endereço:</span><span>{{ user.endereco ? (user.endereco | address) : '' }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Status:</span><span>{{ user.ativo ? (user.ativo | status) : '' }}</span>
+            <ng-container *ngIf="user.ativo !== undefined && user.ativo !== null">
+                <ng-container *ngIf="user.ativo === true; else inactiveStatus">
+                    <span class="user-details__active" style="margin-left: 15px;"></span>
+                </ng-container>
+                <ng-template #inactiveStatus>
+                    <span class="user-details__inactive" style="margin-left: 15px;"></span>
+                </ng-template>
+            </ng-container>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Função:</span><span>{{ user.funcao }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="detail-label">Data de Cadastro:</span><span>{{ user.dataCadastro | date:'dd/MM/yyyy' }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+</div>

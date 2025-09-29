@@ -9,13 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   // Módulo para agrupar componentes reutilizáveis do Angular Material
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   // Recebe outros módulos que serão utilizados pelos componentes dentro deste módulo
   imports: [
     BrowserModule,
     ComponentsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

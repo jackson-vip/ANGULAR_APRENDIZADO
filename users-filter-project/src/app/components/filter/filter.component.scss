@@ -1,0 +1,26 @@
+.filter {
+  height: 100%;
+  width: 100%;
+}
+
+.form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  &__name {
+    border: 1px solid transparent;
+  }
+
+  &__date--picker {
+    border: 1px solid transparent;
+  }
+
+  &__button {
+    border: 1px solid transparent;
+  }
+}
