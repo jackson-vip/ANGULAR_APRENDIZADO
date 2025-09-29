@@ -4,8 +4,14 @@
             <app-filter></app-filter>
         </div>
         <div class="main-left-div">
-            <app-users-list (userSelected)="onUserSelected($event)"></app-users-list>
-        </div>
+            <app-users-list 
+            [dataSource]="dataSource" 
+            [displayedColumns]="displayedColumns"
+            (userSelected)="onUserSelected($event)">
+        </app-users-list>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+        aria-label="Select page of users"></mat-paginator>
+    </div>
     </div>
     <div class="right-div">
         <app-user-details [user]="userSelected" *ngIf="showUserDetails"></app-user-details>

@@ -1,21 +1,42 @@
-import { Component } from '@angular/core';
+
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { UsersList } from './data/users-list';
 import { IUser } from './interfaces/user/user.interface';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: false  // Explicitamente não standalone
+  standalone: false
 })
-export class AppComponent {
-  userSelected: IUser = {} as IUser; // Inicializa com um objeto vazio
-  showUserDetails: boolean = false; // Controla a exibição do componente de detalhes do usuário
+export class AppComponent implements AfterViewInit {
+  userSelected: IUser = {} as IUser;
+  showUserDetails: boolean = false;
+  usersList: IUser[] = UsersList;
+  
+  // Definindo colunas para a tabela de usuários
+  displayedColumns: string[] = ['name', 'date', 'status', 'statusIcon'];
+  
+  /**Configurando a fonte de dados da tabela com paginação 
+   * e integração com MatPaginator do Angular Material.
+  */
+  dataSource = new MatTableDataSource<IUser>(this.usersList);
 
+  /** O @ViewChild é usado para obter uma referência ao MatPaginator
+   * definido no template HTML do componente.
+   */
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  // Método para atualizar o usuário selecionado
+  // Configuração do paginador após a inicialização da view
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  // Método chamado quando um usuário é selecionado na lista
   onUserSelected(user: IUser) {
     this.userSelected = user;
-    this.showUserDetails = true; // Mostra os detalhes do usuário ao selecionar
+    this.showUserDetails = true;
   }
 }
