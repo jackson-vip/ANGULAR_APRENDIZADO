@@ -2,7 +2,6 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { IUser } from 'src/app/interfaces/user/user.interface';
 
-
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -17,7 +16,7 @@ export class UsersListComponent {
    * A ! indica que esta propriedade é obrigatória e será
    * inicializada pelo componente pai.
    */
-  @Input({ required: true }) dataSource!: MatTableDataSource<IUser>;
+  @Input({ required: true }) userList!: MatTableDataSource<IUser>;
   
   /** displayedColumns é um array de strings que define as colunas
    * que serão exibidas na tabela.
@@ -25,6 +24,8 @@ export class UsersListComponent {
    * das strings no array determina a ordem das colunas na tabela.
    */
   @Input({ required: true }) displayedColumns: string[] = [];
+
+  @Input({ required: true }) noResults: boolean = false;
 
   /** @Output (EventEmitter)
    * Emite um evento quando um usuário é selecionado na tabela
@@ -37,4 +38,6 @@ export class UsersListComponent {
   onUserSelected(user: IUser) {
     this.userSelected.emit(user);
   }
+
+
 }

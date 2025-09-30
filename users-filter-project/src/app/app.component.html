@@ -1,17 +1,15 @@
 <div class="container">
     <div class="left-container">
         <div class="top-div">
-            <app-filter></app-filter>
+            <app-filter (onFilter)="onFilter($event)"></app-filter>
         </div>
         <div class="main-left-div">
-            <app-users-list 
-            [dataSource]="dataSource" 
-            [displayedColumns]="displayedColumns"
-            (userSelected)="onUserSelected($event)">
-        </app-users-list>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-        aria-label="Select page of users"></mat-paginator>
-    </div>
+            <app-users-list [userList]="userList" [displayedColumns]="displayedColumns"
+                (userSelected)="onUserSelected($event)" [noResults]="noResults">
+            </app-users-list>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of users"></mat-paginator>
+        </div>
     </div>
     <div class="right-div">
         <app-user-details [user]="userSelected" *ngIf="showUserDetails"></app-user-details>
