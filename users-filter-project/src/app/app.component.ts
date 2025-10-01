@@ -1,9 +1,11 @@
 
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
-import { UsersList } from './data/users-list';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { isWithinInterval } from 'date-fns';
+
+// Meus imports :
+import { UsersList } from './data/users-list';
+import { filterUsersList } from './utils/filter-users-list';
 
 // Os imports de interfaces:
 import { IUser } from './interfaces/user/user.interface';
@@ -57,8 +59,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     }, 3000);
   }
 
-   onFilter( filterOptions: IFilterOptions ) {
-    console.log(filterOptions);
+  onFilter( filterOptions: IFilterOptions ) {
+    // console.log(filterOptions);
 
     /** Estamos usando o filtro do angular material MatTableDataSource
      * para filtrar os dados da tabela com base nas opções fornecidas.
@@ -69,24 +71,8 @@ export class AppComponent implements AfterViewInit, OnInit {
      * então estamos implementando nossa própria lógica de filtragem aqui.
      * Isso nos dá mais controle sobre como os dados são filtrados.
      */
-    
-    // Transforma as datas de string para objetos Date para comparação e se a data não existir, atribui null
-    const filterStart = filterOptions.startDate ? new Date(filterOptions.startDate) : null;
-    const filterEnd = filterOptions.endDate ? new Date(filterOptions.endDate) : null;
-    const filterName = filterOptions.name?.toLowerCase() || '';
 
-    const resultado = this.usersList.filter( user => {
-      const userName = user.nome.toLowerCase();
-      const userDate = new Date(user.dataCadastro);
-
-      if (filterName && !userName.includes(filterName)) return false;
-      if (filterOptions.status !== undefined && user.ativo !== filterOptions.status) return false;
-      if (filterStart && userDate < filterStart) return false; 
-      if (filterEnd && userDate > filterEnd) return false;
-
-      return true;
-    });
-    
+    const resultado = filterUsersList(this.usersList, filterOptions);
     this.userList.data = resultado;
     this.noResults = resultado.length === 0;
 
