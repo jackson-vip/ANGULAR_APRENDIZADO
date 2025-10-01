@@ -1,0 +1,31 @@
+<div class="group">
+  <div class="group__title">
+    <h1>Template Variables</h1>
+  </div>
+  <div class="group__item">
+    <label for="meuInput">Meu Input</label>
+    <input type="text" name="meuInput" #meuInput ngModel placeholder="Digite algo..." />
+    <div class="group__item-subtitle">
+      Para acessar a variável de template, utilize a referência local (<code>#meuInput</code>) junto com o <code>ngModel</code>.
+    </div>
+    Valor: {{ meuInput.value }}
+  </div>
+  <div class="group__item">
+    <label for="meuInput">Meu Input2</label>
+    <input type="text" name="meuInput" #meuInput2 placeholder="Digite algo..." />
+    <div class="group__item-subtitle">
+      No caso de inputs sem o <code>ngModel</code>, é necessário disparar a detecção de mudanças manualmente, por exemplo, com um botão que chama uma função no componente. O ChangeDetectorRef ao ser injetado no construtor do componente, permite chamar o método <code>detectChanges()</code>.
+    </div>
+    Valor: {{ meuInput2.value }}
+    <button (click)="changeDetection()">Atualizar</button>
+  </div>
+  <div class="group__item">
+    <label for="meuInput">Meu Input3</label>
+    <input type="text" name="meuInput" [(ngModel)]="inputValue" placeholder="Digite algo..." />
+    <div class="group__item-subtitle">
+      Através do <code>ngModel</code> com Two-Way Data Binding, o valor do input é atualizado automaticamente.
+      no entanto, a variável de template (<code>#meuInput3</code>) não é necessária nesse caso, pois o valor já está sendo gerenciado pela propriedade do componente (<code>inputValue</code>).
+    </div>
+    Valor: {{ inputValue }}
+  </div>
+</div>
