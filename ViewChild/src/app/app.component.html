@@ -1,0 +1,46 @@
+<div class="groupY">
+  <div class="groupY__title">
+    <h1>Estudo do ViewChild</h1>
+  </div>
+  <div class="groupY__item">
+    <label for="meuInput">Meu Input</label>
+    <input type="text" name="meuInput" #meuInput ngModel placeholder="Digite algo..." />
+    <div class="groupY__item-subtitle">
+      Estamos utilizando o ViewChild para acessar o valor deste input.
+    </div>
+    <div class="groupX">
+      <button (click)="updateInputText()">Atualizar</button>
+      <button (click)="clearInputText()">Limpar</button>
+    </div>
+  </div>
+  <div class="groupY__item">
+    <app-filho #filhoComponent></app-filho>
+    <div class="groupY__item-subtitle">
+      Utilizando o ViewChild para acessar o método e a variável do componente filho,
+      através da referência "filhoComponent" aqui no componente pai.
+    </div>
+    <div class="groupX">
+      <button (click)="showSaudacaoDoFilho()">Saudação do Filho</button>
+    </div>
+  </div>
+  <div class="groupY__title">
+    <h1>Ciclo de vida do Angular</h1>
+  </div>
+  <div class="groupY__item">
+    <label for="meuInput5">Meu Input</label>
+    <input type="text" name="meuInput5" #meuInput5 placeholder="Digite algo..." />
+    <div class="groupY__item-subtitle">
+      Vimos os hooks do ciclo de vida do Angular:
+      <ul>
+        <li>Constructor</li>
+        <li>OnInit</li>
+        <li>AfterViewInit</li>
+      </ul>
+      E utilizamos o AfterViewInit para manipular o input acima, após a inicialização
+      da view do componente.
+    </div>
+  </div>
+   <div class="groupX">
+      <button *ngFor="let btn of buttonsList" #meuButtons>{{ btn }}</button>
+    </div>
+</div>
