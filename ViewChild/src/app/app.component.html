@@ -40,7 +40,11 @@
       da view do componente.
     </div>
   </div>
-   <div class="groupX">
-      <button *ngFor="let btn of buttonsList" #meuButtons>{{ btn }}</button>
-    </div>
+  <div class="groupX">
+    <button *ngFor="let btn of buttonsList; let i = index" class="btn-{{ i }}" #meuButtons>{{ btn }}</button>
+    <button (click)="resetButtons()">Resetar Botões</button>
+    <button (click)="styleButtons()">Aplicar Estilos</button>
+    <button (click)="firstBtn()">Primeiro Botão</button>
+    <button (click)="remover()">Remover Botão</button>
+  </div>
 </div>

@@ -117,6 +117,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.meuInput5Element.nativeElement.style.color = "#33691e"; // Muda a cor do texto do input
     this.meuInput5Element.nativeElement.style.fontWeight = "bold"; // Deixa o texto em negrito
     this.meuInput5Element.nativeElement.focus(); // Coloca o foco no input após a inicialização
+
+    // Aplica estilos iniciais nos botões (movido do ngAfterViewChecked)
+    this.styleButtons();
+
+    // Observa mudanças na lista de botões
+    this.meuButtonsElements.changes.subscribe((result) => {
+      console.log("mudanças nos botões! ", result);
+      
+    });
   }
 
   // Usando ViewChildren para acessar múltiplos elementos do DOM com a mesma referência local
@@ -132,6 +141,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewChecked() {
     console.log("ngAfterViewChecked chamado!", this.meuButtonsElements);
+  }
+
+  /** Método para aplicar estilos nos botões */
+  styleButtons() {
     // Itera sobre cada botão e aplica estilos
     this.meuButtonsElements.forEach((button, index) => {
       button.nativeElement.style.backgroundColor = "#ede7f6"; // Muda a cor de fundo do botão
@@ -158,5 +171,45 @@ export class AppComponent implements OnInit, AfterViewInit {
       thirdButton.nativeElement.style.color = "#e65100";
       thirdButton.nativeElement.textContent = "Terceiro Botão Modificado";
     }
+  }
+
+  /** Método para resetar os estilos e texto dos botões para o estado original */
+  resetButtons() {
+    this.meuButtonsElements.forEach((button, index) => {
+      button.nativeElement.style.backgroundColor = ""; // Reseta a cor de fundo do botão
+      button.nativeElement.style.color = ""; // Reseta a cor do texto do botão
+      button.nativeElement.style.fontWeight = ""; // Reseta o peso da fonte do texto
+      button.nativeElement.style.margin = ""; // Reseta a margem entre os botões
+      button.nativeElement.textContent = this.buttonsList[index]; // Reseta o texto do botão
+    });
+  }
+
+  firstBtn() {
+    if (this.meuButtonsElements.length > 0) {
+      const firstButton = this.meuButtonsElements.get(0);
+      firstButton!.nativeElement.style.backgroundColor = "red";
+      
+      // O método find retorna o primeiro elemento que satisfaz a condição
+      // Nesse caso, estamos procurando o segundo botão (índice 1)
+      // e aplicando um estilo diferente para demonstrar outra forma de acesso 
+      const secondButton = this.meuButtonsElements.find((btn, idx) => idx === 1);
+      if (secondButton) {
+        secondButton.nativeElement.style.backgroundColor = "blue";
+      }
+      const thirdButton = 
+      this.meuButtonsElements.find((btnEl) => btnEl.nativeElement.className === "btn-2");
+      if (thirdButton) {
+        thirdButton.nativeElement.style.backgroundColor = "green";
+      }
+      // this.meuButtonsElements.last.nativeElement.style.backgroundColor = "green";
+    }
+  }
+
+  remover() {
+    // Remove o último botão da lista
+    this.buttonsList.pop();
+    // para remover o primeiro botão, usar shift()
+    // para remover um botão específico, usar splice(index, 1)
+    // this.buttonsList.splice(1, 1);
   }
 }
