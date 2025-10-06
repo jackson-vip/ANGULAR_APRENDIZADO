@@ -1,4 +1,4 @@
-import { Directive, Host, HostBinding } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
 
 @Directive({
     selector: '[appStyle]',
