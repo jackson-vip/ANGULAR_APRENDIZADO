@@ -10,6 +10,7 @@ import { StyleDirective } from './directives/style.directive';
 // Meus componentes
 import { ComDiretiva } from './com-diretiva/com-diretiva';
 import { SemDiretiva } from './sem-diretiva/sem-diretiva';
+import { ClassDirective } from './directives/class.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SemDiretiva } from './sem-diretiva/sem-diretiva';
     HighlightDirective,
     DisabledDirective,
     StyleDirective,
+    ClassDirective,
     SemDiretiva,
     ComDiretiva,
   ],

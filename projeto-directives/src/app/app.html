@@ -21,4 +21,15 @@
   <p [style]="{ 'background-color': 'green', 'color': 'white' }">Property Objeto</p>
   <h1>Aplicando Diretivas</h1>
   <p appStyle>Parágrafo com Diretiva</p>
+  <hr>
+  <p class="meu-text">Normal</p>
+  <p [attr.class]="'meu-text'">Attr</p>
+  <p [className]="'meu-text meu-size'">Property Class Name</p>
+  <p [class]="{
+  'meu-text': true,
+  'meu-size': true,
+  }">Property Class</p>
+  <hr>
+  <h1>Classe Diretiva</h1>
+  <p appClass>Parágrafo com Classe Diretiva</p>
 </div>
