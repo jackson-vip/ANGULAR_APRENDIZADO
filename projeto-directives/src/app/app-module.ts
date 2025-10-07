@@ -7,6 +7,7 @@ import { App } from './app';
 import { DisabledDirective } from './directives/disabled.directive';
 import { HighlightDirective } from './directives/heighlight.directive';
 import { StyleDirective } from './directives/style.directive';
+import { ListenerDirective } from './directives/listener.directive';
 // Meus componentes
 import { ComDiretiva } from './com-diretiva/com-diretiva';
 import { SemDiretiva } from './sem-diretiva/sem-diretiva';
@@ -19,6 +20,7 @@ import { ClassDirective } from './directives/class.directive';
     DisabledDirective,
     StyleDirective,
     ClassDirective,
+    ListenerDirective,
     SemDiretiva,
     ComDiretiva,
   ],

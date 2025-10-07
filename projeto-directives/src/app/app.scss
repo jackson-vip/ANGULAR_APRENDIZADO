@@ -1,3 +1,26 @@
+.box {
+    width: 100%;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.box1, 
+.box2 {
+    width: 50%;
+    padding: 20px;
+}
+
+.meuInput {
+    padding: 8px;
+}
+
 button {
     background-color: #007BFF;
     color: white;

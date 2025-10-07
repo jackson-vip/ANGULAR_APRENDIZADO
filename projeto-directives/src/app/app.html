@@ -1,35 +1,43 @@
-<h1>Meu Primeiro App</h1>
-<app-sem-diretiva></app-sem-diretiva>
-======================================
-<app-com-diretiva></app-com-diretiva>
+<div class="box">
+  <div class="box1">
+    <h1>Diretiva - Host Binding</h1>
+    <app-sem-diretiva></app-sem-diretiva>
+    ======================================
+    <app-com-diretiva></app-com-diretiva>
 
-======================================
-<h2>Diretiva Customizada</h2>
+    ======================================
+    <h2>Diretiva Customizada</h2>
 
-<div style="display: flex; gap: 10px;">
-  <button disabled>Meu Botão</button>
-  <button [attr.disabled]="false">Meu Botão</button>
-  <button [disabled]="false">Meu Botão</button>
-  <br>
-  <button appDisabled>Meu butão attr diretiva</button>
-</div>
+    <div style="display: flex; gap: 10px;">
+      <button disabled>Meu Botão</button>
+      <button [attr.disabled]="false">Meu Botão</button>
+      <button [disabled]="false">Meu Botão</button>
+      <br>
+      <button appDisabled>Meu butão attr diretiva</button>
+    </div>
 
-<div style="width: 400px; display: flex; flex-direction: column; margin-top: 20px;">
-  <p style="background-color: orange; color: white;">Parágrafo Normal</p>
-  <p [attr.style]="'background-color: blue; color: white;'">Attr</p>
-  <p [style]="'background-color: purple; color: white'">Property Binding</p>
-  <p [style]="{ 'background-color': 'green', 'color': 'white' }">Property Objeto</p>
-  <h1>Aplicando Diretivas</h1>
-  <p appStyle>Parágrafo com Diretiva</p>
-  <hr>
-  <p class="meu-text">Normal</p>
-  <p [attr.class]="'meu-text'">Attr</p>
-  <p [className]="'meu-text meu-size'">Property Class Name</p>
-  <p [class]="{
+    <div style="width: 400px; display: flex; flex-direction: column; margin-top: 20px;">
+      <p style="background-color: orange; color: white;">Parágrafo Normal</p>
+      <p [attr.style]="'background-color: blue; color: white;'">Attr</p>
+      <p [style]="'background-color: purple; color: white'">Property Binding</p>
+      <p [style]="{ 'background-color': 'green', 'color': 'white' }">Property Objeto</p>
+      <h1>Aplicando Diretivas</h1>
+      <p appStyle>Parágrafo com Diretiva</p>
+      <hr>
+      <p class="meu-text">Normal</p>
+      <p [attr.class]="'meu-text'">Attr</p>
+      <p [className]="'meu-text meu-size'">Property Class Name</p>
+      <p [class]="{
   'meu-text': true,
   'meu-size': true,
   }">Property Class</p>
-  <hr>
-  <h1>Classe Diretiva</h1>
-  <p appClass>Parágrafo com Classe Diretiva</p>
+      <hr>
+      <h1>Classe Diretiva</h1>
+      <p appClass>Parágrafo com Classe Diretiva</p>
+    </div>
+  </div>
+  <div class="box2">
+    <h1>Diretiva - Host Listener</h1>
+    <input class="meuInput" type="text" appListener>
+  </div>
 </div>
