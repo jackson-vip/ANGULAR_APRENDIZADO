@@ -8,6 +8,7 @@ import { DisabledDirective } from './directives/disabled.directive';
 import { HighlightDirective } from './directives/heighlight.directive';
 import { StyleDirective } from './directives/style.directive';
 import { ListenerDirective } from './directives/listener.directive';
+import { InputBackgroundDirective } from './directives/input-background.directive';
 // Meus componentes
 import { ComDiretiva } from './com-diretiva/com-diretiva';
 import { SemDiretiva } from './sem-diretiva/sem-diretiva';
@@ -21,6 +22,7 @@ import { ClassDirective } from './directives/class.directive';
     StyleDirective,
     ClassDirective,
     ListenerDirective,
+    InputBackgroundDirective,
     SemDiretiva,
     ComDiretiva,
   ],

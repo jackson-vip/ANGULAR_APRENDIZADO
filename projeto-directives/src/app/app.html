@@ -38,6 +38,25 @@
   </div>
   <div class="box2">
     <h1>Diretiva - Host Listener</h1>
-    <input class="meuInput" type="text" appListener>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      1. Ao Clicar no Input um log será disparado
+      <input class="meuInput" type="text" placeholder="Digite algo..." appListener>
+    </div>
+    <hr>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      2. Ao clicar no Input o fundo e a cor do texto mudam e ao sair do Input voltam ao normal
+      <input class="meuInput" 
+      type="text"
+      placeholder="Digite algo..." 
+      appInputBackground
+      bgColor="lightgreen"
+      tColor="brown">
+      <input class="meuInput" 
+      type="text"
+      placeholder="Digite algo..." 
+      appInputBackground
+      bgColor="lightblue"
+      tColor="darkblue">
+    </div>
   </div>
 </div>
