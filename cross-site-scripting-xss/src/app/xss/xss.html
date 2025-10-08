@@ -1,9 +1,26 @@
+<h1>Sem proteção contra XSS ( Cross Site Scripting )</h1>
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 200px; margin: 20px;">
     <input #meuInput type="text" placeholder="Digite algo..." />
     <button (click)="criarElemento(meuInput.value)">Criar Elemento</button>
+</div>
+<div style="margin: 20px; border: 1px solid #ccc; padding: 10px;" #container1>
+    <!-- Elementos criados dinamicamente aparecerão aqui -->
 </div>
 
 <!-- 
     Exemplo de injeção de HTML malicioso (XSS) copie e cole no input e veja o alerta:
     <img src="foto.jpg" onerror="alert('XSS via imagem!')" alt="Foto" />
 -->
+<br>
+
+<h1>Com proteção contra XSS ( Cross Site Scripting ) usando Renderer2</h1>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 200px; margin: 20px;">
+    <input #meuInput2 type="text" placeholder="Digite algo..." />
+    <button (click)="criarElementoComRenderer2(meuInput2.value)">Criar Elemento com Renderer2</button>
+</div>
+<div style="margin: 20px; border: 1px solid #ccc; padding: 10px;" #container>
+    <!-- Elementos criados dinamicamente aparecerão aqui -->
+    @if (errorMessage) {
+      <div style="color: red;">{{ errorMessage }}</div>
+    }
+</div>
