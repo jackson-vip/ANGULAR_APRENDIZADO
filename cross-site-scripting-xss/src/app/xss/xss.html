@@ -1,0 +1,9 @@
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 200px; margin: 20px;">
+    <input #meuInput type="text" placeholder="Digite algo..." />
+    <button (click)="criarElemento(meuInput.value)">Criar Elemento</button>
+</div>
+
+<!-- 
+    Exemplo de injeção de HTML malicioso (XSS) copie e cole no input e veja o alerta:
+    <img src="foto.jpg" onerror="alert('XSS via imagem!')" alt="Foto" />
+-->
