@@ -22,6 +22,13 @@ export class App implements OnInit, AfterViewInit {
     this.DivElement.nativeElement.style.backgroundColor = 'lightblue';
     this.DivElement.nativeElement.textContent = 'Sou uma DIV';
     this.DivElement.nativeElement.className = 'minha-class';
+
+    // Selecuionando os inputs que estão dentro de uma tag div
+    const inputList = this._elRef.nativeElement.querySelectorAll('div input') as HTMLInputElement[];
+    // console.log('Inputs:', inputList);
+    if(inputList.length > 1) {
+      inputList[1].focus(); // Foca no segundo input
+    }
   }
 
   /** O método construtor() é chamado quando a instância do componente é criada.
