@@ -4,9 +4,24 @@
     margin-bottom: 10px;
 }
 
+.minha-class-servico {
+    background-color: lightgreen;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 input {
     padding: 8px;
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }

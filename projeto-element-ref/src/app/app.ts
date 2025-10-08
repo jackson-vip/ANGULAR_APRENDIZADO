@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TesteService } from './service/teste.service';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +40,10 @@ export class App implements OnInit, AfterViewInit {
    *  Isso garante que o elemento já esteja disponível no DOM.
   */
   // Injeção de dependência do ElementRef no construtor (usamos o readonly para garantir que não será modificado)
-  constructor(private readonly _elRef: ElementRef) {
+  constructor(
+    private readonly _elRef: ElementRef,
+    private readonly _testeService: TesteService,
+  ) {
     // console.log(this._elRef); // Acesso ao elemento do componente
   }
 
@@ -109,4 +113,9 @@ export class App implements OnInit, AfterViewInit {
     this._elRef.nativeElement.appendChild(novoElemento);
   }
 
+  // Criando um elemento via serviço e adicionando ao DOM
+  criarElementoViaServico() {
+    const divCriada = this._testeService.criarElementoDiv();
+    this._elRef.nativeElement.appendChild(divCriada);
+  }
 }
