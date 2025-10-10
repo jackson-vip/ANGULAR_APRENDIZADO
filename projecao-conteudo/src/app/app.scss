@@ -1,0 +1,21 @@
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #e3eef8;
+  border: 1px solid #0a2864;
+  border-radius: 5px;
+}
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  scale: 1;
+
+    &:active {
+        background-color: #0056b3;
+        scale: 0.95;
+    }
+}

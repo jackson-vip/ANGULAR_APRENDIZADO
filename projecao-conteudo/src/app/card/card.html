@@ -1,0 +1,26 @@
+<!-- Temos a projeção usando :
+    select=".texto" para selecionar apenas o conteúdo com a classe texto
+    e assim estilizar apenas o título do card. Os demais conteúdos não serão afetados ou exibidos.
+    O segundo ng-content sem select é usado para projetar qualquer outro conteúdo que não tenha sido selecionado pelo primeiro ng-content.
+
+    select="button" para selecionar apenas o conteúdo do tipo botão. Os demais conteúdos não serão afetados ou exibidos.
+
+
+-->
+
+<div class="card">
+    <!-- Exemplo de uso do ng-content com select -->
+    <!-- <ng-content select=".texto"></ng-content> -->
+
+    <!-- Exemplo de uso do ng-content usando tag -->
+    <!-- <ng-content select="button"></ng-content> -->
+
+    <!-- Exemplo de uso com atributo -->
+    <ng-content select="[card-header], [card-content], [card-footer]"></ng-content>
+
+    <!-- Exemplo de uso com tag de um componente -->
+    <ng-content select="app-text-content"></ng-content>
+    
+</div>
+
+<ng-content></ng-content>
