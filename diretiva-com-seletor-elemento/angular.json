@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "diretiva-com-seletor-elemnto": {
+    "diretiva-com-seletor-elemento": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -52,6 +52,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets/"
               }
             ],
             "styles": [
@@ -86,10 +91,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "diretiva-com-seletor-elemnto:build:production"
+              "buildTarget": "diretiva-com-seletor-elemento:build:production"
             },
             "development": {
-              "buildTarget": "diretiva-com-seletor-elemnto:build:development"
+              "buildTarget": "diretiva-com-seletor-elemento:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -110,6 +115,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets/"
               }
             ],
             "styles": [
