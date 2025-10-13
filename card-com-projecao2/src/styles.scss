@@ -1,7 +1,10 @@
+// Importa estilos globais (usando nova sintaxe @use - DEVE vir primeiro)
+@use './styles/components/card';
+
 // Fonte Popins
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
 }
