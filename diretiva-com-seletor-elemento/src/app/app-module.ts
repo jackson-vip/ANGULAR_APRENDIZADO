@@ -8,8 +8,8 @@ import { App } from './app';
 import { CardTextTitleDirective } from './components/card/directives/card-text-title.directive';
 import { CardTextSubtitleDirective } from './components/card/directives/card-text-subtitle.directive';
 import { CardTextDescriptionDirective } from './components/card/directives/card-text-description.directive';
-import { CardAvatarSmall } from './components/card/directives/card-avatar-small';
-import { CardAvatarLarge } from './components/card/directives/card-avatar-large';
+import { CardAvatarSmall } from './components/card/directives/card-avatar-small.directive';
+import { CardAvatarLarge } from './components/card/directives/card-avatar-large.directive';
 
 @NgModule({
   declarations: [
