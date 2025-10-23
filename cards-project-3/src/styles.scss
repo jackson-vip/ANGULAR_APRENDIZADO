@@ -1,0 +1,7 @@
+// Importando a fonte do Google Fonts Poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+// Componetizando os estilos e importando aqui no styles.css principal
+@import "./styles/reset/reset";
+@import "./styles/components/card";
+@import "./styles/components/card-item";
