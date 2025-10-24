@@ -1,4 +1,15 @@
-<div class="ca-c-card">
+<app-card>
+    <app-card-header>
+        <app-card-title [title]="'Cartão de Débito'" [icon]="'icon-debit-card.png'"></app-card-title>
+    </app-card-header>
+    <app-card-content>
+        <div class="ca-c-card-item">
+            <p>Este cliente não possui Cartão de Débito.</p>
+        </div>
+    </app-card-content>
+</app-card>
+
+<!-- <div class="ca-c-card">
     <div class="ca-c-card__header">
         <app-card-title [title]="'Cartão de Débito'" [icon]="'icon-debit-card.png'"></app-card-title>
     </div>
@@ -7,4 +18,4 @@
             <p>Este cliente não possui Cartão de Débito.</p>
         </div>
     </div>
-</div>
+</div> -->

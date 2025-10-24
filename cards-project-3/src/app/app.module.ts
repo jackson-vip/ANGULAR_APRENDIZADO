@@ -11,6 +11,9 @@ import { ClientInfosCardComponent } from './components/client-infos-card/client-
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { CardLineComponent } from './components/card-line/card-line.component';
 import { CardTitleComponent } from './components/card-title/card-title.component';
+import { CardComponent } from './components/card/card.component';
+import { AppCardHeaderDirective } from './components/card/directive/app-card-header.directive';
+import { AppCardContentDirective } from './components/card/directive/app-card-content.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { CardTitleComponent } from './components/card-title/card-title.component
     CardItemComponent,
     CardLineComponent,
     CardTitleComponent,
+    CardComponent,
+    AppCardHeaderDirective,
+    AppCardContentDirective,
   ],
   imports: [BrowserModule],
   providers: [],

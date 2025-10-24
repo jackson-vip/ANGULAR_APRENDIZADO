@@ -11,8 +11,25 @@
   background-color: white;
 
   &__header {
+    display: block;
     padding: 15px;
     background-color: rgb(233, 129, 50);
+
+    &[color='blue'] {
+      background-color: rgb(164, 249, 239);
+    }
+
+    &[color='red'] {
+      background-color: rgb(249, 164, 164);
+    }
+
+    &[color='green'] {
+      background-color: rgb(164, 249, 178);
+    }
+
+    &[color='yellow'] {
+      background-color: rgb(249, 247, 164);
+    }
 
     // Modificador é utilizado para variações de estilos dentro do mesmo componente
     &--bg-blue {
@@ -21,6 +38,7 @@
   }
 
   &__content {
+    display: block;
     padding: 15px;
     overflow: hidden;
     border-bottom-left-radius: 5px;
