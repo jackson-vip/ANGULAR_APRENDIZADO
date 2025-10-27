@@ -45,4 +45,23 @@
     border-bottom-right-radius: 5px;
     background-color: white;
   }
+
+  &__title-text {
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  &__description-text {
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  &__medium-icon {
+    width: 40px;
+    
+  }
+
+  &__large-icon {
+    width: 60px;
+  }
 }
