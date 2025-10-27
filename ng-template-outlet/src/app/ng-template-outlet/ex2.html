@@ -1,0 +1,16 @@
+ex. 2
+
+<br>
+
+<ng-container *ngIf="condition; else elseTemplate">
+    <ng-container *ngTemplateOutlet="meuTemplate"></ng-container>
+</ng-container>
+
+<ng-template #meuTemplate>
+    Template:
+    <app-meu-comp></app-meu-comp>
+</ng-template>
+
+<ng-template #elseTemplate>
+    Sou o Else Template
+</ng-template>
