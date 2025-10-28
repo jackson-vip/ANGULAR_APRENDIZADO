@@ -1,4 +1,19 @@
 <div class="card">
     <!-- <ng-content></ng-content> -->
-     <ng-container *ngTemplateOutlet="content"></ng-container>
+    <!-- <ng-container *ngTemplateOutlet="content"></ng-container> -->
+    
+    <!-- Ex1 -->
+     <!-- <ng-container *ngIf="condition; else elseTemplate">
+         <ng-container *ngTemplateOutlet="content"></ng-container>
+     </ng-container>
+
+     <ng-template #elseTemplate>Nenhum conteúdo disponível</ng-template> -->
+
+    <!-- Ex2 -->
+    <!-- <ng-container *ngIf="condition; else elseTemplate" [ngTemplateOutlet]="content"></ng-container>
+
+    <ng-template #elseTemplate>Nenhum conteúdo disponível</ng-template> -->
+
+    <!-- Ex3 -->
+    <ng-container *ngTemplateOutlet="condition ? content : null"></ng-container>
 </div>

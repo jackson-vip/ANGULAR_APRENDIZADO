@@ -6,6 +6,10 @@ import { AfterContentInit, Component, ContentChild, OnInit, TemplateRef } from '
   styleUrl: './card.component.scss'
 })
 export class CardComponent implements OnInit, AfterContentInit  {
+  
+  condition: boolean = true;
+  // condition: boolean = false;
+
   @ContentChild('meuTemplate') content!: TemplateRef<any>;
 
   /* O retorno será Undefined, pois o conteúdo ainda não foi projetado */
