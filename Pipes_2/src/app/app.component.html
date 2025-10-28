@@ -12,3 +12,5 @@
 {{ pessoa | json | uppercase }}
 <hr>
 Status do usuário: <b>{{ user.status | userStatus }} </b>
+<hr>
+Nome do Usuário: <b>{{ user.nome + ' ' + (user.sobrenome | truncate: 5) }} </b>

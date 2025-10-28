@@ -13,6 +13,7 @@ export class AppComponent {
 
   user = {
     nome: 'Jhonatan',
+    sobrenome: 'Albuquerque',
     idade: 30,
     status: 1,
   };
