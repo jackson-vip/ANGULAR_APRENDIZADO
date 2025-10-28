@@ -1,0 +1,12 @@
+<!-- Para usarmos os Pipes em outros modulos teremos que importá-los no módulo correspondente
+  o import é o CommonModule -->
+
+{{ pessoa.nome | uppercase }} tem {{ pessoa.idade }} anos.
+<hr>
+<!-- Ao tentar exibir o objeto pessoa, o Angular não sabe como exibi-lo
+    e por isso não mostra nada. Para contornar isso, podemos usar o pipe json -->
+{{ pessoa }}
+<hr>
+{{ pessoa | json }}
+<hr>
+{{ pessoa | json | uppercase }}
