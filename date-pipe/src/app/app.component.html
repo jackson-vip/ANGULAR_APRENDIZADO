@@ -13,7 +13,12 @@
 <h1>Formato Data Obj UTC-0 :</h1>
 <b>Data Convertida para Região:</b>{{ minhaDataObj | date:'full' : '+0000' }}
 <hr>
-<p>{{ minhaData | date:'fullDate' }}</p>
+<p>{{ minhaData | date }}</p>
+<p>{{ minhaData | date:'full' }}</p>
+<p>{{ minhaData | date:'full': undefined : 'pt-BR' }}</p>
+<hr>
+<p>{{ minhaData | date:"'Hoje é' EEEE 'de' d 'de' MMMM 'de' yyyy" }}</p>
+<p>{{ minhaData | date:'fullTime' }}</p>
 <p>{{ minhaData | date:'shortDate' }}</p>
 <p>{{ minhaData | date:'short' }}</p>
 <p>{{ minhaData | date:'mediumDate' }}</p>
