@@ -1,0 +1,26 @@
+<h1>Formato ISO8601:</h1>
+<p>{{ minhaData | date:'full' }}</p>
+<b>Data UTC-0:</b> {{ minhaData | date: 'full': '+0000' }}
+
+<h1>Formato Timestamp:</h1>
+<b>Timestamp para região:</b>  {{ 1793196000000 | date:'full' }}
+<br>
+<b>Timestamp UTC-0:</b> {{ 1793196000000 | date:'full': '+0000' }}
+<br>
+<h1>Formato Data Obj:</h1>
+<b>Data Convertida para Região:</b>{{ minhaDataObj | date:'full' }}
+<br>
+<h1>Formato Data Obj UTC-0 :</h1>
+<b>Data Convertida para Região:</b>{{ minhaDataObj | date:'full' : '+0000' }}
+<hr>
+<p>{{ minhaData | date:'fullDate' }}</p>
+<p>{{ minhaData | date:'shortDate' }}</p>
+<p>{{ minhaData | date:'short' }}</p>
+<p>{{ minhaData | date:'mediumDate' }}</p>
+<p>{{ minhaData | date:'longDate' }}</p>
+<p>{{ minhaData | date:'short' }}</p>
+<p>{{ minhaData | date:'medium' }}</p>
+<p>{{ minhaData | date:'long' }}</p>
+<p>{{ minhaData | date:'dd-MM-yyyy HH:mm:ss' }}</p>
+<p>{{ minhaData | date:'EEEE, MMMM d, y, h:mm a' }}</p>
+<p>{{ minhaData | date:'dd-MM-yyyyTHH:mm:ssZ' }}</p>
