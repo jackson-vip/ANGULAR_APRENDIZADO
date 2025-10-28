@@ -1,0 +1,21 @@
+<ng-template #headerTemplate>
+  <p>Sou o Header</p>
+</ng-template>
+
+<ng-template #contentTemplate>
+  <p>Sou o Content</p>
+</ng-template>
+
+<ng-template #footerTemplate>
+  <p>Sou o Footer</p>
+</ng-template>
+
+<!-- A tag <app-card> recebe três templates: header, content e footer
+    através das propriedades @Input() header, @Input() content e @Input() footer
+    definidos no componente CardComponent.
+-->
+<app-card
+  [header]="headerTemplate"
+  [content]="contentTemplate"
+  ></app-card>
+  <!-- [footer]="footerTemplate" -->
