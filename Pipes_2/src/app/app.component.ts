@@ -10,4 +10,10 @@ export class AppComponent {
     nome: 'Jhon',
     idade: 26
   };
+
+  user = {
+    nome: 'Jhonatan',
+    idade: 30,
+    status: 1,
+  };
 }
