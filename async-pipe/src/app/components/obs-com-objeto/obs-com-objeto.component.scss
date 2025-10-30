@@ -1,0 +1,14 @@
+.meuBotao {
+    margin-top: 15px;
+    margin-right: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(#007bff, 10%);
+    }
+}

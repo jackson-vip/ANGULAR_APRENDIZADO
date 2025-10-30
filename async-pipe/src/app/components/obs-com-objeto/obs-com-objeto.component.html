@@ -11,3 +11,26 @@
 <p><b>Endereço:</b> {{ user.address.street }}, {{ user.address.suite }}, {{ user.address.city }} - {{
     user.address.zipcode }}</p>
 <p><b>Geo:</b> Lat: {{ user.address.geo.lat }}, Lng: {{ user.address.geo.lng }}</p>
+
+<hr>
+<br>
+<h3>Usando Async Pipe:</h3>
+
+<div *ngIf="user$ | async as user">
+    <p><b>Nome:</b> {{ user.name }}</p>
+    <p><b>Username:</b> {{ user.username }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>Telefone:</b> {{ user.phone }}</p>
+    <p><b>Website:</b> {{ user.website }}</p>
+    <p><b>Empresa:</b> {{ user.company.name }}</p>
+    <p><b>Endereço:</b> {{ user.address.street }}, {{ user.address.suite }}, {{ user.address.city }} - {{
+        user.address.zipcode }}</p>
+    <p><b>Geo:</b> Lat: {{ user.address.geo.lat }}, Lng: {{ user.address.geo.lng }}</p>
+</div>
+
+<br>
+<hr>
+<br>
+<button class="meuBotao" (click)="onBtnClick(1)">1</button>
+<button class="meuBotao" (click)="onBtnClick(2)">2</button>
+<button class="meuBotao" (click)="onBtnClick(3)">3</button>
