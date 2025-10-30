@@ -1,0 +1,13 @@
+<h1>Async Pipe com Objetos</h1>
+
+<h3>Subscribe manual:</h3>
+
+<p><b>Nome:</b> {{ user.name }}</p>
+<p><b>Username:</b> {{ user.username }}</p>
+<p><b>Email:</b> {{ user.email }}</p>
+<p><b>Telefone:</b> {{ user.phone }}</p>
+<p><b>Website:</b> {{ user.website }}</p>
+<p><b>Empresa:</b> {{ user.company.name }}</p>
+<p><b>Endereço:</b> {{ user.address.street }}, {{ user.address.suite }}, {{ user.address.city }} - {{
+    user.address.zipcode }}</p>
+<p><b>Geo:</b> Lat: {{ user.address.geo.lat }}, Lng: {{ user.address.geo.lng }}</p>
