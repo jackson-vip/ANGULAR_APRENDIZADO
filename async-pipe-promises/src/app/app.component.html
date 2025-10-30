@@ -1,0 +1,37 @@
+<div *ngIf="( userPromise | async ) as user; else loading">
+  <p><b>Nome:</b> {{ user.name }}</p>
+  <p><b>Username:</b> {{ user.username }}</p>
+  <p><b>Email:</b> {{ user.email }}</p>
+</div>
+
+<ng-template #loading>
+  <h1>Loading...</h1>
+</ng-template>
+
+<br>
+<hr>
+
+<div *ngIf="( userPromise2 | async ) as user2; else loading2">
+  <p><b>ID:</b> {{ user2.id }}</p>
+  <p><b>Nome:</b> {{ user2.name }}</p>
+  <p><b>Sobrenome :</b> {{ user2.username }}</p>
+  <p><b>Email:</b> {{ user2.email }}</p>
+</div>
+
+<ng-template #loading2>
+  <h1>Loading...</h1>
+</ng-template>
+
+<br>
+<hr>
+
+<div *ngIf="( userPromise3 | async ) as user3; else loading3">
+  <p><b>ID:</b> {{ user3.id }}</p>
+  <p><b>Nome:</b> {{ user3.name }}</p>
+  <p><b>Sobrenome :</b> {{ user3.username }}</p>
+  <p><b>Email:</b> {{ user3.email }}</p>
+</div>
+
+<ng-template #loading3>
+  <h1>Loading...</h1>
+</ng-template>
