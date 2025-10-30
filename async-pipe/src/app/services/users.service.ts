@@ -13,6 +13,10 @@ export class UsersService {
         private readonly _http: HttpClient
     ) { }
 
+    getUsers(): Observable<IUserResponse[]> {
+        return this._http.get<IUserResponse[]>('https://jsonplaceholder.typicode.com/users');
+    }
+
     getUserById(userId: number): Observable<IUserResponse> {
         return this._http.get<IUserResponse>(`https://jsonplaceholder.typicode.com/users/${userId}`);
     }

@@ -1,0 +1,32 @@
+<h1>Async Pipe com Arrays</h1>
+<h3>Lista de Usuários</h3>
+
+<ng-container [ngTemplateOutlet]="loading">
+    <table class="user-table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="user-row" *ngFor="let user of (users$ | async); else loading">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <ng-template #loading>
+                <div *ngIf="(users$ | async) === null" style="width: 100%; text-align: center; border: 1px solid red;">
+                    Nenhuma requisição foi feita.
+                </div>
+                <div *ngIf="(users$ | async) === undefined || ((users$ | async) && (users$ | async)!.length < 0)" style="width: 100%; text-align: center; border: 1px solid blue;">
+                    Carregando usuários...
+                </div>
+                <div *ngIf="(users$ | async)?.length === 0" style="width: 100%; text-align: center; border: 1px solid green;">
+                    Nenhum usuário encontrado.
+                </div>
+            </ng-template>
+        </tbody>
+    </table>
+</ng-container>
