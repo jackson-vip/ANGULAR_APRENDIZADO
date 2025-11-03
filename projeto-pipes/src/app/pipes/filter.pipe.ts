@@ -16,7 +16,11 @@ import { Pipe } from '@angular/core';
   name: 'filter',
 })
 export class FilterPipe {
-  transform(items: any[], searchText: string): any[] {
+  transform(items: any[] | null, searchText: string): any[] {
+    // Verifica se a lista de itens é nula
+    if(!items) {
+      return [];
+    }
     // Se a lista estiver vazia ou o texto de busca for vazio, retorna a lista original
     if (!items?.length || !searchText?.trim()) {
       return items || [];
