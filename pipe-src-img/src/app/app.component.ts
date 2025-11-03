@@ -32,7 +32,7 @@ export class AppComponent {
   addUser() {
     this.users.push({
       name: 'New User',
-      status: 1
+      status: 3
     });
   }
 }
