@@ -1,0 +1,54 @@
+<!-- <label for="cars">Selecione um carro:</label>
+<select 
+id="cars" 
+ngModel="opcaoSelecionada" 
+name="cars" 
+#meuSelectFormControl="ngModel" 
+required >
+  <option value="" selected>Selecione uma opção</option>
+  <option *ngFor="let car of cars" [value]="car | lowercase">{{ car }}</option>
+</select> -->
+
+<!-- <label for="cars">Selecione um carro:</label>
+<select 
+id="cars" 
+[(ngModel)]="opcaoSelecionada" 
+name="cars"
+#meuSelectFormControl="ngModel" 
+required >
+  <option value="" selected>Selecione uma opção</option>
+  <option *ngFor="let car of cars" [value]="car | lowercase">{{ car }}</option>
+</select>
+
+<br>
+<p><b>Opção selecionada:</b> {{ opcaoSelecionada }}</p> -->
+
+
+<label for="cars">Selecione um carro:</label>
+<select 
+id="cars" 
+[ngModel]="opcaoSelecionada"
+(ngModelChange)="onChange($event)" 
+name="cars"
+#meuSelectFormControl="ngModel" 
+required >
+  <option value="" selected>Selecione uma opção</option>
+  <option *ngFor="let car of cars" [value]="car | lowercase">{{ car }}</option>
+</select>
+
+<br>
+<p><b>Opção selecionada:</b> {{ opcaoSelecionada }}</p>
+
+
+<!-- <label for="cars">Selecione um carro:</label>
+<select id="cars" [(ngModel)]="opcaoSelecionada" name="cars" #meuSelectFormControl="ngModel" required>
+  <option value="" disabled>Selecione uma opção</option>
+  <option *ngFor="let opcao of opcoes" [value]="opcao">{{ opcao }}</option>
+</select> -->
+
+
+
+<h3>Estado do Select</h3>
+<p>Válido: {{ meuSelectFormControl.valid }}</p>
+<p>Tocado: {{ meuSelectFormControl.touched }}</p>
+<p>Sujo: {{ meuSelectFormControl.dirty }}</p>
