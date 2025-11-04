@@ -1,0 +1,38 @@
+<!-- <textarea
+placeholder="Digite seu nome"
+ngModel
+#meuTextareaFormControl="ngModel"
+minlength="5"
+required
+></textarea> -->
+
+<!-- <textarea
+placeholder="Digite seu nome"
+[(ngModel)]="text"
+#meuTextareaFormControl="ngModel"
+minlength="5"
+required
+></textarea> -->
+
+<textarea
+placeholder="Digite seu nome"
+[ngModel]="text"
+(ngModelChange)="onChange($event)"
+#meuTextareaFormControl="ngModel"
+minlength="5"
+required
+></textarea>
+
+<div *ngIf="meuTextareaFormControl.invalid && meuTextareaFormControl.touched">
+  <span *ngIf="meuTextareaFormControl.hasError('required')" style="color: red;">O campo nome é obrigatório</span>
+  <span *ngIf="meuTextareaFormControl.hasError('minlength')" style="color: red;">O campo nome deve ter pelo menos 5 caracteres</span>
+</div>
+
+<p>Válido: {{ meuTextareaFormControl.valid }}</p>
+<p>Tocado: {{ meuTextareaFormControl.touched }}</p>
+<p>Sujo: {{ meuTextareaFormControl.dirty }}</p>
+<!-- <p>Valor: {{ meuTextareaFormControl.value }}</p> -->
+<span id="showText"></span>
+<br>
+
+<button (click)="showText()" [disabled]="meuTextareaFormControl.invalid">Mostrar Texto Atual</button>

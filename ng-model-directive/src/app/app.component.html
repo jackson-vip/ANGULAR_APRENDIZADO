@@ -1,32 +1,3 @@
-<!-- Nome: 
-<input 
-ngModel
-#meuInput
-#meuInputFormControl="ngModel"
-[ngClass]="{
-  'valid': meuInputFormControl.valid && (meuInputFormControl.dirty || meuInputFormControl.touched),
-  'invalid': meuInputFormControl.invalid && (meuInputFormControl.dirty || meuInputFormControl.touched)
-}"
-minlength="5"
-required /> -->
-
-Nome: 
-<input 
-ngModel
-#meuInput
-#meuInputFormControl="ngModel"
-minlength="5"
-required />
-
-
-<div *ngIf="meuInputFormControl.invalid && meuInputFormControl.touched">
-  <span *ngIf="meuInputFormControl.hasError('required')" style="color: red;">O campo nome é obrigatório</span>
-  <span *ngIf="meuInputFormControl.hasError('minlength')" style="color: red;">O campo nome deve ter pelo menos 5 caracteres</span>
-</div>
-
-<p>Válido: {{ meuInputFormControl.valid }}</p>
-<p>Tocado: {{ meuInputFormControl.touched }}</p>
-<p>Sujo: {{ meuInputFormControl.dirty }}</p>
-<p>Valor: {{ meuInputFormControl.value }}</p>
-<hr>
-<button (click)="send()">Enviar</button>
+<app-input-text></app-input-text>
+<br><br>
+<app-textarea></app-textarea>
