@@ -1,0 +1,16 @@
+// .valid {
+//     border: 2px solid green;
+// }
+
+// .invalid {
+//     border: 2px solid red;
+// }
+
+
+.ng-touched.ng-valid {
+    border: 2px solid green;
+}
+
+.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
