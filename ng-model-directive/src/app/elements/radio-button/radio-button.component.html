@@ -1,0 +1,68 @@
+<!-- 
+<input 
+type="radio" 
+name="group1" 
+id="html" 
+value="html"
+[(ngModel)]="radioSelection"
+/>
+<label for="html">HTML</label>
+
+<input 
+type="radio" 
+name="group1" 
+id="css" 
+value="css"
+[(ngModel)]="radioSelection"
+/>
+<label for="css">CSS</label>
+
+<input 
+type="radio" 
+name="group1" 
+id="javascript" 
+value="javascript"
+[(ngModel)]="radioSelection"
+/>
+<label for="javascript">JavaScript</label> 
+-->
+
+<form ngForm #f="ngForm">
+    <input 
+    type="radio" 
+    name="group1" 
+    id="html" 
+    value="html"
+    [ngModel]="radioSelection"
+    (ngModelChange)="onChange($event)"
+    required
+    />
+    <label for="html">HTML</label>
+    
+    <input 
+    type="radio" 
+    name="group1" 
+    id="css" 
+    value="css"
+    [ngModel]="radioSelection"
+    (ngModelChange)="onChange($event)"
+    required
+    />
+    <label for="css">CSS</label>
+    
+    <input 
+    type="radio" 
+    name="group1" 
+    id="javascript" 
+    value="javascript"
+    [ngModel]="radioSelection"
+    (ngModelChange)="onChange($event)"
+    required
+    />
+    <label for="javascript">JavaScript</label>
+    
+    <p>Selected Language: {{ radioSelection }}</p>
+    
+    <!-- <button [disabled]="radioSelection === '' || radioSelection === null || radioSelection === undefined">Enviar</button> -->
+    <button [disabled]="f.invalid">Enviar</button>
+</form>

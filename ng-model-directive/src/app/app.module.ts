@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TextareaComponent } from './elements/textarea/textarea.component';
 import { InputTextComponent } from './elements/input-text/input-text.component';
 import { SelectComponent } from './elements/select/select.component';
+import { RadioButtonComponent } from './elements/radio-button/radio-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputTextComponent,
     TextareaComponent,
-    SelectComponent
+    SelectComponent,
+    RadioButtonComponent,
   ],
   imports: [
     BrowserModule,
