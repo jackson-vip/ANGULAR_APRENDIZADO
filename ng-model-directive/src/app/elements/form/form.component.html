@@ -1,0 +1,11 @@
+<form #meuForm="ngForm">
+    <label for="nome">Nome: </label>
+    <input ngModel type="text" name="nome" id="nome" required />
+    <br />
+    <label for="sobrenome">Sobre Nome: </label>
+    <input ngModel type="text" name="sobrenome" id="sobrenome" required />
+
+    <p>Válido: {{ meuForm.valid }}</p>
+    <p>Tocado: {{ meuForm.touched }}</p>
+    <p>Sujo: {{ meuForm.dirty }}</p>
+</form>

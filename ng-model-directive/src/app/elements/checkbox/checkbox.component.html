@@ -1,0 +1,54 @@
+<!-- 
+<input 
+type="checkbox" 
+name="isActive" 
+id="isActive" 
+[(ngModel)]="isActive"
+#checkboxFormControl="ngModel" 
+required
+/>
+
+<label for="isActive">Active</label> 
+-->
+
+<form #f="ngForm">
+    <input 
+    type="checkbox" 
+    name="isActive" 
+    id="isActive" 
+    [ngModel]="isActive"
+    (ngModelChange)="onChange($event)"
+    #checkboxFormControl="ngModel" 
+    required
+    />
+    
+    <label for="isActive">Active</label>
+    
+    <input 
+    type="checkbox" 
+    name="isApproved" 
+    id="isApproved" 
+    [(ngModel)]="isApproved"
+    #checkboxFormControl="ngModel"
+    />
+    
+    <label for="isApproved">Aprovado</label>
+    
+    <p>Usuário Ativo: {{ isActive }}</p>
+    
+    <p>válido: {{ checkboxFormControl.valid }}</p>
+    <p>tocado: {{ checkboxFormControl.touched }}</p>
+    <p>sujo: {{ checkboxFormControl.dirty }}</p>
+    
+    <hr>
+    <!-- /// -->
+
+    <p>Usuário Aprovado: {{ isApproved }}</p>
+    
+    <p>válido: {{ checkboxFormControl.valid }}</p>
+    <p>tocado: {{ checkboxFormControl.touched }}</p>
+    <p>sujo: {{ checkboxFormControl.dirty }}</p>
+
+    <button [disabled]="f.invalid">Enviar</button>
+
+</form>
