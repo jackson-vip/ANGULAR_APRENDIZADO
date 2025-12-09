@@ -9,6 +9,7 @@ import { SelectComponent } from './elements/select/select.component';
 import { RadioButtonComponent } from './elements/radio-button/radio-button.component';
 import { CheckboxComponent } from './elements/checkbox/checkbox.component';
 import { FormComponent } from './elements/form/form.component';
+import { FormWithSubmitComponent } from './elements/form-with-submit/form-with-submit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormComponent } from './elements/form/form.component';
     RadioButtonComponent,
     CheckboxComponent,
     FormComponent,
+    FormWithSubmitComponent,
   ],
   imports: [
     BrowserModule,
