@@ -1,10 +1,22 @@
-<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)">
+<!-- 
+ O formulário utiliza ngFormOptions para atualizar os valores dos controles ao mudar o valor e seu padão é updateOn: 'change'
+ Porém podemos alternar para 'blur' ou 'submit' conforme a necessidade. 
+-->
+<!--
+Temos a possibilidade de usarmos o ngMoelOptions diretamente nos controles individuais caso queiramos um comportamento diferente do formulário como um todo.
+as opções de ngModelOptions sobrescrevem as opções do ngFormOptions do formulário pai.
+0. Por padrão, sem ngModelOptions ou ngFormOptions, os valores dos controles são atualizados ao mudar o valor (updateOn: 'change').
+1. [ngModelOptions]=" { updateOn: 'blur' } " no input de nome, o valor deste campo só será atualizado quando o campo perder o foco.
+2. [ngModelOptions]=" { updateOn: 'submit' } " no select de país, o valor deste campo só será atualizado quando o formulário for submetido.
+-->
+<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" [ngFormOptions]="{ updateOn: 'change' }">
     <label for="nome">Nome:</label>
     <input 
     type="text" 
     name="nome" 
-    ngModel
-    [(ngModel)]="inputText" 
+    #meuInput="ngModel"
+    [(ngModel)]="inputText"
+    [ngModelOptions]=" { updateOn: 'blur' } "
     required
     />
     <br/>

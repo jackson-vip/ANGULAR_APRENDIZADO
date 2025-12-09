@@ -1,17 +1,37 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-form-with-submit',
   templateUrl: './form-with-submit.component.html',
   styleUrl: './form-with-submit.component.scss'
 })
-export class FormWithSubmitComponent {
+export class FormWithSubmitComponent implements AfterViewInit {
   inputText: string = 'Texto inicial';
   textarea: string = 'Minha descrição inicial';
   pais: string = '1';
   radioButton: string = '1';
   condicao: boolean = true;
+
+  // Acessando o NgForm via ViewChild
+  @ViewChild('meuForm') meuForm!: NgForm;
+
+  // Acessando o input via ViewChild
+  @ViewChild('meuInput') meuInput!: NgModel;
+
+
+  // Método do ciclo de vida do Angular chamado após a inicialização da view
+  ngAfterViewInit() {
+    // Inscrevendo-se para mudanças no valor do formulário
+    this.meuForm.valueChanges?.subscribe((valor: string) => {
+      console.log('Valor do formulário alterado via ViewChild:', valor);
+    });
+
+    // Inscrevendo-se para mudanças no valor do input específico
+    this.meuInput.valueChanges?.subscribe((valor: string) => {
+      console.log('Valor do input alterado via ViewChild:', valor);
+    });
+  }
   
   // Método chamado ao enviar o formulário
   onSubmit(Form: NgForm) {
