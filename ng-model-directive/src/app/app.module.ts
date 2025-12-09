@@ -10,6 +10,7 @@ import { RadioButtonComponent } from './elements/radio-button/radio-button.compo
 import { CheckboxComponent } from './elements/checkbox/checkbox.component';
 import { FormComponent } from './elements/form/form.component';
 import { FormWithSubmitComponent } from './elements/form-with-submit/form-with-submit.component';
+import { NgModelGroupComponent } from './elements/ng-model-group/ng-model-group.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormWithSubmitComponent } from './elements/form-with-submit/form-with-s
     CheckboxComponent,
     FormComponent,
     FormWithSubmitComponent,
+    NgModelGroupComponent,
   ],
   imports: [
     BrowserModule,

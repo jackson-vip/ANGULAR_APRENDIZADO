@@ -1,0 +1,77 @@
+<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)">
+    
+    <ng-container ngModelGroup="grupoUsuario" #grupoUsuario="ngModelGroup">
+        <h2>Dados do Usuário:</h2>
+        
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome" ngModel placeholder="Nome" required>
+        <br><br>
+        <label for="idade">Idade: </label>
+        <input type="text" name="idade" id="idade" ngModel placeholder="Idade" required>
+        <br><br>
+        <b>Estadio do Usuário:</b>
+        <br>
+        <p>Válido: 
+            <span [style.color]="grupoUsuario.valid ? 'green' : 'red'">
+            {{ grupoUsuario.valid }}
+            </span>
+        </p>
+        <p>Inválido:
+            <span [style.color]="grupoUsuario.invalid ? 'green': 'red'"> 
+            {{ grupoUsuario.invalid }}
+            </span>
+        </p>
+        <p>Intacto: 
+            <span [style.color]="grupoUsuario.pristine ? 'green' : 'red'">
+            {{ grupoUsuario.pristine }}
+            </span>
+        </p>
+        <p>Sujo: 
+            <span [style.color]="grupoUsuario.dirty ? 'green': 'red'">
+            {{ grupoUsuario.dirty }}
+        </span>
+        </p>
+        <p>Tocado: 
+            <span [style.color]="grupoUsuario.touched ? 'green': 'red'">
+            {{ grupoUsuario.touched }}
+            </span>
+        </p>
+        <p>Não Tocado: 
+            <span [style.color]="grupoUsuario.untouched ? 'green' : 'red'">
+            {{ grupoUsuario.untouched }}
+            </span>
+        </p>
+    </ng-container>
+    
+    <ng-container ngModelGroup="grupoProfissao" #grupoProfissao="ngModelGroup">
+        <h2>Dados da Profissão:</h2>
+        
+        <label for="cargo">Cargo: </label>
+        <input type="text" name="cargo" id="cargo" ngModel placeholder="Cargo" required>
+        <br><br>
+        <label for="setor">Setor:</label>
+        <input type="text" name="setor" id="setore" ngModel placeholder="Setor" required>
+        <br><br>
+        <b>Estadio da Profissão:</b>
+        <br>
+        <p>Válido: 
+            <span [style.color]="grupoProfissao.valid ? 'green' : 'red'">
+            {{ grupoProfissao.valid }}
+            </span>
+        </p>
+        <p>Sujo:
+            <span [style.color]="grupoProfissao.dirty ? 'green': 'red'"> 
+            {{ grupoProfissao.dirty }}
+            </span>
+        </p>
+        <p>Tocado:
+            <span [style.color]="grupoProfissao.touched ? 'green': 'red'">
+            {{ grupoProfissao.touched }}
+            </span>
+        </p>
+    </ng-container> 
+    
+    <br><br>
+    <button type="submit" [disabled]="meuForm.invalid">Enviar</button>
+
+</form>
