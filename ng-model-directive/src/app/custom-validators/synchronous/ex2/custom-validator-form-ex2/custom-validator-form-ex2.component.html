@@ -1,0 +1,19 @@
+<form #meuForm="ngForm" appDepartmentQuantityValidator>
+    <div class="container">
+        <h2>Custom Validator - Exemplo 2</h2>
+        <div class="group">
+            <label for="departamento">Departamento:</label>
+            <select name="departamento" id="departamento" ngModel>
+                <option value="TI">Tecnologia</option>
+                <option value="RH">Recursos Humanos</option>
+            </select>
+            <br>
+            <label for="quantidade">Quantidade:</label>
+            <input type="text" name="quantidade" id="quantidade" ngModel #quantidadeControl="ngModel" placeholder="Informe a quantidade" required />
+            <span class="errors" *ngIf="meuForm && meuForm.invalid && meuForm.dirty">
+                <p *ngIf="meuForm.hasError('invelidTIQuantity')">O Departamento de Tecnologia deve ter no máximo 10 pessoas.</p> 
+                <p *ngIf="meuForm.hasError('invelidRHQuantity')">O Departamento de Recursos Humanos deve ter no máximo 20 pessoas.</p> 
+            </span>
+        </div>
+    </div>
+</form>
