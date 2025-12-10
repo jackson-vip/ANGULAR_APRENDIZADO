@@ -11,6 +11,9 @@ import { CheckboxComponent } from './elements/checkbox/checkbox.component';
 import { FormComponent } from './elements/form/form.component';
 import { FormWithSubmitComponent } from './elements/form-with-submit/form-with-submit.component';
 import { NgModelGroupComponent } from './elements/ng-model-group/ng-model-group.component';
+import { MainFormComponent } from './form-with-children/main-form/main-form.component';
+import { FormUserComponent } from './form-with-children/form-user/form-user.component';
+import { FormProfessionComponent } from './form-with-children/form-profession/form-profession.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { NgModelGroupComponent } from './elements/ng-model-group/ng-model-group.
     FormComponent,
     FormWithSubmitComponent,
     NgModelGroupComponent,
+    MainFormComponent,
+    FormUserComponent,
+    FormProfessionComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
