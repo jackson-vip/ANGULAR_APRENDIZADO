@@ -1,0 +1,12 @@
+<form #meuForm="ngForm">
+    <div class="container">
+        <h2>Custom Validator - Exemplo 1</h2>
+        <div class="group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" ngModel #nomeControl="ngModel" placeholder="Informe seu nome" appInvalidTextValidator required />
+            <span class="errors" *ngIf="!nomeControl.valid && nomeControl.touched">
+                <p *ngIf="nomeControl.hasError('invalidText')">Digite 5 ou mais caracteres</p>
+            </span> 
+        </div>
+    </div>
+</form>
