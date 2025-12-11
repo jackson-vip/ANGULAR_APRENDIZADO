@@ -1,0 +1,20 @@
+<form #meuForm="ngForm">
+    <label for="Nome">Nome:</label>
+    <input type="text" id="Nome" name="Nome" ngModel 
+    #nomeInputControl="ngModel" [ngModelOptions]="{updateOn: 'blur'}"
+    placeholder="Digite seu nome"
+    appUserResponseValidator required />
+
+    <div *ngIf="nomeInputControl.dirty">
+        <p *ngIf="nomeInputControl.pending" class="text-worning">Verificando...</p>
+        <p *ngIf="!nomeInputControl.pending && nomeInputControl.valid && !nomeInputControl.hasError('userNotFound')" class="text-success">Usuário Existente</p>
+        <p *ngIf="!nomeInputControl.pending && nomeInputControl.invalid && nomeInputControl.hasError('userNotFound')" 
+        class="text-danger">Usuário Inexistente</p>
+    </div>
+
+    <p>Válido {{ nomeInputControl.valid }}</p>
+    <p>Tocado {{ nomeInputControl.touched }}</p>
+    <p>Sujo {{ nomeInputControl.dirty }}</p>
+    <p>Pendente {{ nomeInputControl.pending }}</p>
+
+</form>

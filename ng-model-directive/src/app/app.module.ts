@@ -18,6 +18,9 @@ import { CustomValidatorFormEx1Component } from './custom-validators/synchronous
 import { InvalidTextValidatorDirective } from './custom-validators/synchronous/ex1/directives/invalid-text-validator.directive';
 import { CustomValidatorFormEx2Component } from './custom-validators/synchronous/ex2/custom-validator-form-ex2/custom-validator-form-ex2.component';
 import { DepartmentQuantityValidatorDirective } from './custom-validators/synchronous/ex2/directives/department-quantity-validator.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { UserResponseValidatorDirective } from './custom-validators/asynchronous/directives/user-response-validator.directive';
+import { AsyncCustonValidatorFromComponent } from './custom-validators/asynchronous/async-custon-validator-from/async-custon-validator-from.component';
 
 @NgModule({
   declarations: [
@@ -37,10 +40,13 @@ import { DepartmentQuantityValidatorDirective } from './custom-validators/synchr
     InvalidTextValidatorDirective,
     CustomValidatorFormEx2Component,
     DepartmentQuantityValidatorDirective,
+    UserResponseValidatorDirective,
+    AsyncCustonValidatorFromComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
