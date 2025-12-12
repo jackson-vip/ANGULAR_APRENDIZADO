@@ -1,0 +1,38 @@
+<!-- 
+    *ngIf="emailControl.hasError('required')" é equivalente a *ngIf="emailControl.errors?.['required']"
+    Se os dois são equivalentes, então qual usar e por quê?
+    R: Ambos funcionam, mas usar o operador de encadeamento opcional (?.) é mais seguro, pois evita erros caso 'errors' seja null ou undefined.
+
+    Existe a possibilidade de termos outros tipos de erros além do 'required' e 'invalidEmail'?
+    R: Sim, existem outros tipos de erros que podem ocorrer, como 'minlength', 'maxlength', 'pattern', entre outros, dependendo das validações aplicadas ao campo.
+-->
+
+
+<form #meuForm="ngForm">
+  <mat-form-field>
+    <mat-label>Email:</mat-label>
+    <input 
+    type="email" 
+    name="email" 
+    id="email" 
+    ngModel 
+    #emailControl="ngModel"
+    autocomplete="email"
+    matInput
+    appEmailValidator
+    required 
+    placeholder="Ex. pat@example.com"
+    />
+    <mat-hint>O Email é necessário!</mat-hint>
+    <mat-error *ngIf="emailControl.errors?.['required']">O email é <strong>obrigatório</strong></mat-error>
+    <mat-error *ngIf="emailControl.errors?.['invalidEmail'] && !emailControl.errors?.['required']">O email está <strong>fora do padrão</strong></mat-error>
+  </mat-form-field>
+  <div>
+    <br><br>
+    <button type="button" [disabled]="meuForm.invalid">Enviar</button>
+  </div>
+  <br><br>
+  <p>Válido: {{ meuForm.valid }}</p>
+  <p>Sujo: {{ meuForm.dirty }}</p>
+  <p>Tocado: {{ meuForm.touched }}</p>
+</form>
