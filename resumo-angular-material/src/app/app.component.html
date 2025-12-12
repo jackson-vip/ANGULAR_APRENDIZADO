@@ -1,0 +1,23 @@
+<!-- 
+Podemos ter acesso ao estado do formulário através da referência local "meuForm".
+Também podemos usar de froma separada o [ngModel] e (ngModelChange) para capturar o valor do input e fazer algo com ele
+(nesse caso, apenas logamos no console). Ou podemos usar o two-way binding com [(ngModel)] para fazer a mesma coisa.
+Com o two-way binding, o valor do input já fica automaticamente vinculado à variável do componente.
+-->
+
+<form #meuForm="ngForm">
+  <mat-form-field>
+    <mat-label>Nome:</mat-label>
+    <input type="text" name="nome" id="nome" [ngModel]="nome" (ngModelChange)="inputChange($event)" #nomeControl="ngModel" matInput required />
+    <mat-hint>O Nome é necessário!</mat-hint>
+    <mat-error>O nome deve ser preenchido!</mat-error>
+  </mat-form-field>
+  <div>
+    <br><br>
+    <button type="button" [disabled]="meuForm.invalid">Enviar</button>
+  </div>
+  <br><br>
+  <p>Válido: {{ meuForm.valid }}</p>
+  <p>Sujo: {{ meuForm.dirty }}</p>
+  <p>Tocado: {{ meuForm.touched }}</p>
+</form>
