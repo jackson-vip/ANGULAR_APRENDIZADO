@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ex1Component } from './components/ex1/ex1.component';
 import { Ex2Component } from './components/ex2/ex2.component';
 import { EmailValidatorDirective } from './components/ex2/directives/email-validator.directive';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { CustomErrorStateMatcher } from './components/ex2/utils/custom-error-state-matcher';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,12 @@ import { EmailValidatorDirective } from './components/ex2/directives/email-valid
     MatFormFieldModule, 
     MatInputModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorStateMatcher,
+      useClass: CustomErrorStateMatcher
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
