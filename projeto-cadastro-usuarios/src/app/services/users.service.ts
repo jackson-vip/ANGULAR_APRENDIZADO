@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IUser } from '../interfaces/user/user.interface';
+import { UsersListResponse } from '../types/users-list-response';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,7 @@ export class UsersService {
    * Usamos o private readonly para garantir que a lista não seja modificada externamente
    * e que não possa ser reatribuída dentro da classe.
    */
-  private readonly usersList: Array<any> = [
+  private readonly usersList: UsersListResponse = [
     {
       name: 'Usuário 1',
       username: 'usuario1',
@@ -61,7 +63,7 @@ export class UsersService {
     },
   ];
 
-  getUsers(): Observable<Array<any>> {
+  getUsers(): Observable<UsersListResponse> {
     /** Simula uma chamada assíncrona para obter a lista de usuários.
      * Retorna um Observable que emite a lista após um atraso de 2 segundos.
      * Isso pode ser útil para simular chamadas HTTP reais.
