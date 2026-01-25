@@ -81,7 +81,7 @@
                         <mat-label>Data de Nascimento</mat-label>
                         <input
                         name="dataNascimento"
-                        ngModel
+                        [ngModel]="dateValue"
                         readonly
                         matInput [matDatepicker]="picker"
                         [min]="minDate"

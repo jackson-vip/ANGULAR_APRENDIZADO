@@ -86,6 +86,6 @@ export class AppComponent implements OnInit {
       this.userSelectedIndex = userIndex;
     }
 
-    console.log('Usuário selecionado no AppComponent:', userFound);
+    // console.log('Usuário selecionado no AppComponent:', userFound);
   }
 }
