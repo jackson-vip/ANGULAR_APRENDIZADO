@@ -1,37 +1,62 @@
 .container {
-    padding: 16px;
+  padding: 16px;
 }
 
 .user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__row {
     display: flex;
-    flex-direction: column;
     gap: 1rem;
+    flex-wrap: wrap;
+  }
 
-    &__row {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
+  &__item {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 
-    &__item {
-        flex: 1 1 auto;
-        min-width: 0;
-    }
+  &__item-100 {
+    width: 100%;
+  }
 
-    &__item-100 {
-        width: 100%;
-    }
+  &__item-50 {
+    width: minmax(250px, calc(50% - 0.5rem));
+  }
 
-    &__item-50 {
-        width: minmax(250px, calc(50% - 0.5rem));
-    }
+  &__musics {
+    width: 100%;
+    padding: 20px;
+  }
 
-    &__musics {
-        width: 100%;
-        padding: 20px;
-    }
+  &__musics-title {
+    padding: 20px;
+  }
+}
 
-    &__musics-title {
-        padding: 20px;
-    }
+.heart-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+:host ::ng-deep .mdc-checkbox {
+    display: none; /* Esconde completamente o checkbox */
+}
+
+.heart-icon {
+  font-size: 24px;
+  color: #939393; /* Cor padrão para não selecionado */
+}
+
+.heart-checkbox.mat-mdc-checkbox-checked .heart-icon {
+  border-color: #ff4081; /* Garante que a borda também mude de cor */
+  color: #ff4081; /* Garante que a cor seja aplicada ao estado selecionado */
 }
