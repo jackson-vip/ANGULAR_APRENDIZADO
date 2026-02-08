@@ -8,6 +8,8 @@ import { IUser } from '../../interfaces/user/user.interface';
 import { getPasswordStrengthValue } from '../../../utils/get-password-strength-value';
 import { passwordStrengthBarColor } from '../../../utils/password-strength-bar-color';
 import { convertPtBrDateToDateObj } from '../../../utils/convert-pt-br-date-to-date-obj';
+import { convertDateObjToPtBrDate } from '../../../utils/convert-date-obj-to-pt-br-date';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-user-form',
@@ -21,6 +23,8 @@ export class UserFormComponent implements OnChanges, OnInit {
   minDate : Date | null = null;
   maxDate : Date | null = null;
   dateValue: Date | null = null;
+  displayedColumns: string[] = ['title', 'band', 'genre', 'favorite'];
+  filteredGenresList: GenresListResponse = [];
 
   /** Todas as propriedades @Input, @Output, @ViewChild, @ViewChildren 
    * e os demais decoradores devem estar abaixo deste comentário:
@@ -45,6 +49,7 @@ export class UserFormComponent implements OnChanges, OnInit {
     if ( USER_CHANGED ) {
       this.onPasswordChange(this.userSelected.password);
       this.setBirthDateToDatepicker(this.userSelected.birthDate);
+      this.filteredGenresList = this.genresList;
     }
   }
 
@@ -60,7 +65,35 @@ export class UserFormComponent implements OnChanges, OnInit {
     passwordStrengthBarColor(passwordStrengthNumber);
   }
 
-  /**  Todos os Métodos que são privados devem estar abaixo deste comentário
+  onDateChange(event: MatDatepickerInputEvent<any,any>) {
+    if (!event.value) return;
+    this.userSelected.birthDate = convertDateObjToPtBrDate(event.value);
+    console.log("OBSERVAÇÃO: ", this.userSelected);
+  }
+
+  displayGenre(genreId: number): string {
+    const genre = this.genresList.find(g => g.id === genreId);
+    return genre ? genre.description : '';
+  }
+
+  filterGenre(findGenreText: string): GenresListResponse {
+    if (!findGenreText || typeof findGenreText !== 'string') {
+      this.filteredGenresList = this.genresList;
+      return this.genresList;
+    }
+
+    const search = findGenreText.toLowerCase().trim();
+
+    this.filteredGenresList = this.genresList.filter(g => g.description.toLowerCase().includes(search));
+    return this.filteredGenresList;
+  }
+
+  isAnyCheckboxChecked(): boolean {
+    // O método some() retorna true se pelo menos um dos elementos do array satisfizer a condição implementada pela função fornecida. Neste caso, verificamos se algum dos objetos de música tem a propriedade isFavorite como true.
+    return this.userSelected.musics.some(music => music.isFavorite);
+  }
+
+  /**  Todos oconvertDateObjToPtBrDates Métodos que são privados devem estar abaixo deste comentário
    */
 
   // Define as datas mínima e máxima para o campo de data de nascimento
