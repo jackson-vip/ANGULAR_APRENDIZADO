@@ -23,7 +23,7 @@
   }
 
   &__item-50 {
-    width: minmax(250px, calc(50% - 0.5rem));
+    width: clamp(250px, 50%, calc(50% - 0.5rem));
   }
 
   &__musics {
@@ -34,6 +34,15 @@
   &__musics-title {
     padding: 20px;
   }
+
+  &__button-container {
+    justify-content: flex-end;
+  }
+}
+
+mat-form-field {
+  display: flex;
+  align-items: center;
 }
 
 .heart-checkbox {
@@ -59,4 +68,19 @@
 .heart-checkbox.mat-mdc-checkbox-checked .heart-icon {
   border-color: #ff4081; /* Garante que a borda também mude de cor */
   color: #ff4081; /* Garante que a cor seja aplicada ao estado selecionado */
+}
+
+:host ::ng-deep .user-form__musics .mat-mdc-table tbody tr td:last-child {
+  position: relative;
+}
+
+.heart-checkbox[_ngcontent-ng-c183368036][_ngcontent-ng-c183368036] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:host ::ng-deep .user-form__musics .mat-mdc-table tbody tr td:last-child .mdc-label {
+  padding-left: 0;
 }

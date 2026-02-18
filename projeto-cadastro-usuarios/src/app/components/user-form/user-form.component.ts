@@ -10,6 +10,7 @@ import { passwordStrengthBarColor } from '../../../utils/password-strength-bar-c
 import { convertPtBrDateToDateObj } from '../../../utils/convert-pt-br-date-to-date-obj';
 import { convertDateObjToPtBrDate } from '../../../utils/convert-date-obj-to-pt-br-date';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -91,6 +92,10 @@ export class UserFormComponent implements OnChanges, OnInit {
   isAnyCheckboxChecked(): boolean {
     // O método some() retorna true se pelo menos um dos elementos do array satisfizer a condição implementada pela função fornecida. Neste caso, verificamos se algum dos objetos de música tem a propriedade isFavorite como true.
     return this.userSelected.musics.some(music => music.isFavorite);
+  }
+
+  onFormSubmit(form: NgForm) {
+    console.log(form);
   }
 
   /**  Todos oconvertDateObjToPtBrDates Métodos que são privados devem estar abaixo deste comentário
