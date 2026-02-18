@@ -74,7 +74,7 @@ mat-form-field {
   position: relative;
 }
 
-.heart-checkbox[_ngcontent-ng-c183368036][_ngcontent-ng-c183368036] {
+:host ::ng-deep .user-form__musics .mat-mdc-table tbody tr td:last-child mat-checkbox {
   position: absolute;
   top: 50%;
   left: 50%;

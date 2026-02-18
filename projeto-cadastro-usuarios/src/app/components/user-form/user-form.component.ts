@@ -129,7 +129,7 @@ export class UserFormComponent implements OnChanges, OnInit {
     }
   }
 
-  /**  Todos oconvertDateObjToPtBrDates Métodos que são privados devem estar abaixo deste comentário
+  /**  Todos os Métodos que são privados devem estar abaixo deste comentário
    */
 
   // Define as datas mínima e máxima para o campo de data de nascimento
