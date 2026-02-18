@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { IUser } from '../../interfaces/user/user.interface';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-before-and-after-dial',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class UserBeforeAndAfterDialComponent {
 
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { originalUser: IUser, updateUser: IUser }
+  ) {}
 }

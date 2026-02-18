@@ -83,15 +83,16 @@ export class AppComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.openBeforeAndAfterDialog();
+    const originalUser = this.usersList[this.userSelectedIndex!];
+    this.openBeforeAndAfterDialog(originalUser, this.userSelected);
   }
 
-  openBeforeAndAfterDialog() {
+  openBeforeAndAfterDialog(originalUser: IUser, updateUser: IUser) {
     this._matDialog.open(UserBeforeAndAfterDialComponent, {
       minWidth: '70%',
       data: {
-        before: this.usersList[this.userSelectedIndex!],
-        after: this.userSelected
+        originalUser: originalUser,
+        updateUser: updateUser,
       }
     });
   }

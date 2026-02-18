@@ -1,0 +1,40 @@
+
+.ca-c-btn {
+    padding: 6px 16px !important;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 0.0892857143em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, outline 0.2s ease;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+    &__danger {
+        background-color: #e74c3c !important;
+        color: #fff !important;
+
+        &:hover:not(:disabled) {
+            background-color: #c0392b;
+        }
+
+        &:active:not(:disabled) {
+            background-color: #a93226;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #a93226; 
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        &:disabled {
+            background-color: #e74c3c;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+}

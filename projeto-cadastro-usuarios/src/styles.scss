@@ -2,3 +2,6 @@
 
 // Importação do reset de estilos para garantir consistência entre navegadores
 @import './styles/reset/reset';
+
+// Importação de clasess globais para serem utilizadas em toda a aplicação
+@import './styles/components/global-classes';
