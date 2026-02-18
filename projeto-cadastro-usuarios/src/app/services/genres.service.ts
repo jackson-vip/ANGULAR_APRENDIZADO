@@ -1,3 +1,4 @@
+import { GenreDescriptionPipe } from './../pipes/genre-description.pipe';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GenresListResponse } from '../types/genres-list-response';
@@ -36,5 +37,10 @@ export class GenresService {
         observer.complete();
       }, 2000); // Simula um atraso de 2 segundos
     });
+  }
+
+  getGenreDescription(genreId: number): string {
+    const GenreDescription = this.genresList.find((g) => g.id === genreId);
+    return GenreDescription ? GenreDescription.description : 'Gênero Desconecido';
   }
 }

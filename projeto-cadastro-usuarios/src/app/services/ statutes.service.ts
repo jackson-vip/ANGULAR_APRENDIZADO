@@ -6,7 +6,7 @@ import { StatesListResponse } from '../types/states-list-response';
   providedIn: 'root',
 })
 export class StatutesService {
-  private readonly statutesList: StatesListResponse = [
+  private readonly statesList: StatesListResponse = [
     { id: 12, descricao: 'Acre', descricaoContraida: 'AC' },
     { id: 27, descricao: 'Alagoas', descricaoContraida: 'AL' },
     { id: 16, descricao: 'Amapá', descricaoContraida: 'AP' },
@@ -36,12 +36,17 @@ export class StatutesService {
     { id: 17, descricao: 'Tocantins', descricaoContraida: 'TO' },
   ];
 
-  getStatutes(): Observable<StatesListResponse> {
+  getStates(): Observable<StatesListResponse> {
     return new Observable((observer) => {
       setTimeout(() => {
-        observer.next(this.statutesList);
+        observer.next(this.statesList);
         observer.complete();
       }, 2000); // Simula um atraso de 2 segundos
     });
+  }
+
+  getStateDescription(stateID: number): string {
+    const state = this.statesList.find((s) => s.id === stateID);
+    return state ? state.descricao : '';
   }
 }

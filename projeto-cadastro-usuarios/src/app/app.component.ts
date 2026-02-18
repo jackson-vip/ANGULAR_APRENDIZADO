@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
     // Carrega a lista de usuários ao iniciar o componente
     this.getUsers();
     this.getGenres();
-    this.getStatutes();
+    this.getStates();
   }
 
   /** Todos os Métodos que são públicos devem estar abaixo deste comentário
@@ -116,10 +116,10 @@ export class AppComponent implements OnInit {
     });
   }
 
-  private getStatutes() {
-    this._statutesService.getStatutes().subscribe((statutesListResponse) => {
-      this.statesList = statutesListResponse;
-      // console.log('Lista de Estados do Brasil: ', this.statutesList);
+  private getStates() {
+    this._statutesService.getStates().subscribe((statesListResponse) => {
+      this.statesList = statesListResponse;
+      // console.log('Lista de Estados do Brasil: ', this.statesList);
     });
   }
 }

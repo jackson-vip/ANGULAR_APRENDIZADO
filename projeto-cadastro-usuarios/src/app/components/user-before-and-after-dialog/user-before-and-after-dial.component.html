@@ -11,49 +11,47 @@
             <div class="infos__item infos__header infos__header--border-top-right">Depois</div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><strong>Nome:</strong>{{data.originalUser.name}}</div>
-            <div class="infos__item"><strong>Nome:</strong>{{data.updateUser.name}}</div>
+            <div class="infos__item"><strong>Nome:</strong> {{data.originalUser.name}} </div>
+            <div class="infos__item"><strong>Nome:</strong> {{data.updateUser.name}} </div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><strong>Usuário:</strong>{{data.originalUser.username}}</div>
-            <div class="infos__item"><strong>Usuário:</strong>{{data.updateUser.username}}</div>
+            <div class="infos__item"><strong>Usuário:</strong> {{data.originalUser.username}} </div>
+            <div class="infos__item"><strong>Usuário:</strong> {{data.updateUser.username}} </div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><strong>Email:</strong>{{data.originalUser.email}}</div>
-            <div class="infos__item"><strong>Email:</strong>{{data.updateUser.email}}</div>
+            <div class="infos__item"><strong>Email:</strong> {{data.originalUser.email}} </div>
+            <div class="infos__item"><strong>Email:</strong> {{data.updateUser.email}} </div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><strong>Senha:</strong>{{data.originalUser.password}}</div>
-            <div class="infos__item"><strong>Senha:</strong>{{data.updateUser.password}}</div>
+            <div class="infos__item"><strong>Senha:</strong> {{data.originalUser.password}} </div>
+            <div class="infos__item"><strong>Senha:</strong> {{data.updateUser.password}} </div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><strong>Data de Nascimento:</strong>{{data.originalUser.birthDate}}</div>
-            <div class="infos__item"><strong>Data de Nascimento:</strong>{{data.updateUser.birthDate}}</div>
+            <div class="infos__item"><strong>Data de Nascimento:</strong> {{data.originalUser.birthDate}} </div>
+            <div class="infos__item"><strong>Data de Nascimento:</strong> {{data.updateUser.birthDate}} </div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><strong>Estado:</strong>{{data.originalUser.state}}</div>
-            <div class="infos__item"><strong>Estado:</strong>{{data.updateUser.state}}</div>
+            <div class="infos__item"><strong>Estado:</strong> {{data.originalUser.state | stateDescription}} </div>
+            <div class="infos__item"><strong>Estado:</strong> {{data.updateUser.state | stateDescription}} </div>
         </div>
         <ng-container *ngFor="let music of data.originalUser.musics; let i = index">
             <div class="infos__row">
-                <div class="infos__item"><strong>Música {{i + 1}} - Título:</strong>{{music.title}}</div>
-                <div class="infos__item"><strong>Música {{i + 1}} - Título:</strong>{{data.updateUser.musics[i].title}}</div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Título:</strong> {{music.title}} </div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Título:</strong> {{data.updateUser.musics[i].title}} </div>
             </div>
             <div class="infos__row">
-                <div class="infos__item"><strong>Música {{i + 1}} - Banda:</strong>{{music.band}}</div>
-                <div class="infos__item"><strong>Música {{i + 1}} - Banda:</strong>{{data.updateUser.musics[i].band}}</div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Banda:</strong> {{music.band}} </div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Banda:</strong> {{data.updateUser.musics[i].band}} </div>
             </div>
             <div class="infos__row">
-                <div class="infos__item"><strong>Música {{i + 1}} - Gênero:</strong>{{music.genre}}</div>
-                <div class="infos__item"><strong>Música {{i + 1}} - Gênero:</strong>{{data.updateUser.musics[i].genre}}</div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Gênero:</strong> {{music.genre | genreDescription}} </div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Gênero:</strong> {{data.updateUser.musics[i].genre | genreDescription}} </div>
             </div>
             <div class="infos__row">
-                <div class="infos__item"><strong>Música {{i + 1}} - Favorita:</strong>{{music.isFavorite}}</div>
-                <div class="infos__item"><strong>Música {{i + 1}} - Favorita:</strong>{{data.updateUser.musics[i].isFavorite}}</div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Favorita:</strong> {{music.isFavorite | isFavoriteDescription}} </div>
+                <div class="infos__item"><strong>Música {{i + 1}} - Favorita:</strong> {{data.updateUser.musics[i].isFavorite | isFavoriteDescription}} </div>
             </div>
         </ng-container>
-        
-
     </div>
     <div mat-dialog-actions align="end">
         <button mat-button mat-dialog-close class="ca-c-btn ca-c-btn__danger">Fechar</button>
