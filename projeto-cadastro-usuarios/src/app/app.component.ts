@@ -87,12 +87,19 @@ export class AppComponent implements OnInit {
     this.openBeforeAndAfterDialog(originalUser, this.userSelected);
   }
 
-  openBeforeAndAfterDialog(originalUser: IUser, updateUser: IUser) {
-    this._matDialog.open(UserBeforeAndAfterDialComponent, {
+  openBeforeAndAfterDialog(originalUser: IUser, updateUser: IUser, userSelectedIndex: number = this.userSelectedIndex!) {
+    const dialogRef = this._matDialog.open(UserBeforeAndAfterDialComponent, {
       minWidth: '70%',
       data: {
         originalUser: originalUser,
         updateUser: updateUser,
+      }
+    });
+
+    // O método afterClosed() é um Observable que emite um valor quando o diálogo é fechado.
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result) {
+        this.confirmUserUpdate(updateUser, userSelectedIndex);
       }
     });
   }
@@ -101,6 +108,10 @@ export class AppComponent implements OnInit {
    *  Os métodos privados são aqueles que não devem ser acessados de fora da classe, ou seja, 
    *  eles são usados apenas internamente dentro da classe para realizar tarefas específicas.
   */
+
+  private confirmUserUpdate(updatedUser: IUser, userSelectedIndex: number) {
+    this.usersList[userSelectedIndex] = structuredClone(updatedUser);
+  }
 
   private getUsers() {
     this._usersService.getUsers().subscribe((usersListResponse) => {
