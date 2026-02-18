@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 // Importação de tipos:
 import { GenresListResponse } from '../../types/genres-list-response';
 import { StatesListResponse } from '../../types/states-list-response';
@@ -35,6 +35,13 @@ export class UserFormComponent implements OnChanges, OnInit {
   @Input() genresList: GenresListResponse = [];
   @Input() statesList: StatesListResponse = [];
   @Input() userSelected: IUser = {} as IUser;
+
+  // Envia para o componente pai um evento quando o formulário é submetido com sucesso
+  @Output('onFormSubmit') onFormSubmitEmitt = new EventEmitter<void>();
+
+  constructor(
+    private readonly _el: ElementRef
+  ) {}
 
   /** Todos os Livecycle Hooks devem estar abaixo deste comentário:
    */
@@ -95,7 +102,31 @@ export class UserFormComponent implements OnChanges, OnInit {
   }
 
   onFormSubmit(form: NgForm) {
-    console.log(form);
+    // console.log(form);
+
+    if (form.invalid) {
+      this.focusOnInvalidFieldControl(form);
+      return;
+    }
+    // Quando o formulário é válido, emite o evento para o componente pai
+    this.onFormSubmitEmitt.emit();
+  }
+
+  // Método para focar no primeiro campo inválido do formulário
+  focusOnInvalidFieldControl(form: NgForm) {
+  // console.log(Object.keys(form.controls)); -> Lista [name, email, ...]
+  const controls = form.controls;
+  // console.log(controls); -> Objeto {name: FormControl, email: FormControl, ...}
+  
+  for (const controlName in controls) {
+      if (controls[controlName].invalid) {
+        const invalidControl: HTMLElement = this._el.nativeElement.querySelector(`[name="${controlName}"]`);
+        if (invalidControl) {
+          invalidControl.focus();
+          break;
+        }
+      }
+    }
   }
 
   /**  Todos oconvertDateObjToPtBrDates Métodos que são privados devem estar abaixo deste comentário
