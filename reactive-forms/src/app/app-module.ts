@@ -5,20 +5,20 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { FormControlExample } from './EXEMPLOS/form-control/form-control';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { ValidatorAssicrono } from './EXEMPLOS/validator-assicrono/validator-assicrono';
+import { FormGroupComponent } from './EXEMPLOS/form-group/form-group';
 
 @NgModule({
   declarations: [
     App,
     FormControlExample,
     ValidatorAssicrono,
+    FormGroupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

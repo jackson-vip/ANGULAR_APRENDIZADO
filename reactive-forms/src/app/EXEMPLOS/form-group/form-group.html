@@ -1,0 +1,32 @@
+<div class="form-group-container">
+    <form [formGroup]="pessoaForm" class="form-group-container__form">
+        <div class="form-group">
+            <label for="nome">Nome:<span style="color: #ff6761">*</span></label>
+            <input id="nome" type="text" formControlName="nome">
+            <div class="erros">
+                @if( nome.invalid && nome.touched ){
+                    @if( nome.hasError('required') ){
+                        <span style="color: red">O campo nome é obrigatório</span>
+                    }
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:<span style="color: #ff6761">*</span></label>
+            <input id="email" type="email" formControlName="email">
+            <div class="erros">
+                @if( email.invalid && email.touched ){
+                    @if( email.hasError('required') ){
+                        <span style="color: red">O campo email é obrigatório</span>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="form-group-container__footer">
+            <button [disabled]="!pessoaForm.valid" class="btn" type="submit" (click)="onSubmit()">Enviar</button>
+        </div>
+            
+        <p>Formulário Válido: {{ pessoaForm.valid }}</p>
+    </form>
+</div>
