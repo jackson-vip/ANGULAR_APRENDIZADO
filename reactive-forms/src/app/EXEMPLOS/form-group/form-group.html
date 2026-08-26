@@ -1,8 +1,8 @@
 <div class="form-group-container">
-    <form [formGroup]="pessoaForm" class="form-group-container__form">
+    <form [formGroup]="pessoaForm" (ngSubmit)="onSubmit()" class="form-group-container__form">
         <div class="form-group">
-            <label for="nome">Nome:<span style="color: #ff6761">*</span></label>
-            <input id="nome" type="text" formControlName="nome">
+            <label for="name">Nome:<span style="color: #ff6761">*</span></label>
+            <input id="name" type="text" formControlName="nome">
             <div class="erros">
                 @if( nome.invalid && nome.touched ){
                     @if( nome.hasError('required') ){
@@ -25,11 +25,38 @@
                 }
             </div>
         </div>
+        <div formGroupName="endereco">
+            <div class="form-group">
+                <label for="street">Rua:<span style="color: #ff6761">*</span></label>
+                <input id="street" type="text" formControlName="rua">
+                <div class="erros">
+                    @if( rua.invalid && rua.touched ){
+                        @if( rua.hasError('required') ){
+                            <span style="color: red">O campo rua é obrigatório</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="number">Número:<span style="color: #ff6761">*</span></label>
+                <input id="number" type="text" formControlName="numero">
+                <div class="erros">
+                    @if( numero.invalid && numero.touched ){
+                        @if( numero.hasError('required') ){
+                            <span style="color: red">O campo número é obrigatório</span>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
 
         <div class="form-group-container__footer">
-            <button [disabled]="!pessoaForm.valid" class="btn" type="submit" (click)="onSubmit()">Enviar</button>
+            <button [disabled]="!pessoaForm.valid" class="btn" type="submit" (click)="mostrarValor()">Enviar</button>
+            <button class="btn" type="button" (click)="AlterarConteudo()">Alterar Conteúdo</button>
+            <button class="btn" type="button" (click)="AlterarParcial()">Alterar Parcial</button>
         </div>
-            
+
         <p>Formulário Válido: {{ pessoaForm.valid }}</p>
+        <p>Formulário_filho Endereço: {{ pessoaForm.get('endereco')?.valid }}</p>
     </form>
 </div>
