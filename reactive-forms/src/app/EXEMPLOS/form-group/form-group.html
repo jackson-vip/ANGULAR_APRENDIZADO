@@ -19,6 +19,9 @@
                     @if( email.hasError('required') ){
                         <span style="color: red">O campo email é obrigatório</span>
                     }
+                    @if( email.hasError('email') ){
+                        <span style="color: red">O campo email deve ser um endereço de email válido</span>
+                    }
                 }
             </div>
         </div>
