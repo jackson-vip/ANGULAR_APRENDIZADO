@@ -7,6 +7,7 @@ import { FormControlExample } from './EXEMPLOS/form-control/form-control';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidatorAssicrono } from './EXEMPLOS/validator-assicrono/validator-assicrono';
 import { FormGroupComponent } from './EXEMPLOS/form-group/form-group';
+import { FormArrayComponent } from './EXEMPLOS/form-array/form-array';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FormGroupComponent } from './EXEMPLOS/form-group/form-group';
     FormControlExample,
     ValidatorAssicrono,
     FormGroupComponent,
+    FormArrayComponent,
   ],
   imports: [
     BrowserModule,
