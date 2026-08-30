@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="header-actions">
+        <button type="button" class="btn btn-add" (click)="adicionar()">+ Adicionar Música</button>
+    </div>
+    <form [formGroup]="musicasForm">
+        <div formArrayName="musicas">
+            <div class="musica-items">
+                @for (musica of musicas.controls; track $index) {
+                <div class="musica-item" [formGroupName]="$index">
+                    <div class="form-group">
+                        <label [for]="'musica-' + $index">Música {{$index + 1}}</label>
+                        <input type="text" [id]="'musica-' + $index" formControlName="titulo"
+                            placeholder="Digite o nome da música">
+                    </div>
+                </div>
+                <div class="musica-item" [formGroupName]="$index">
+                    <div class="form-group">
+                        <label [for]="'artista-' + $index">Artista {{$index + 1}}</label>
+                        <input type="text" [id]="'artista-' + $index" formControlName="artista"
+                            placeholder="Digite o nome do artista">
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-remove" 
+                    (click)="remover($index)">Remover
+                </button>
+                }
+            </div>
+        </div>
+        <p class="status-info">Formulário válido: <strong>{{ musicasForm.valid ? 'Sim' : 'Não' }}</strong></p>
+        <p class="status-info">Form Array Válido: <strong>{{ musicas.valid ? 'Sim' : 'Não' }}</strong></p>
+    </form>
+</div>
