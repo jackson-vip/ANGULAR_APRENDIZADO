@@ -1,0 +1,76 @@
+<form [formGroup]="pessoaForm" id="my-form-teste">
+    <h2 class="section-title">Dados Pessoais:</h2>
+    <div class="row">
+        <div class="form-group">
+            <label for="nome">Nome:<span class="required">*</span></label>
+            <input id="nome" formControlName="nome">
+            @if( nome.invalid && nome.touched ){
+                @if( nome.hasError('required') ){
+                    <p class="erros">O nome é obrigatório.</p>
+                }
+                @if( nome.hasError('minlength') ){
+                    <p class="erros">O nome deve ter no mínimo 3 caracteres.</p>
+                }
+            }
+        </div>
+        <div class="form-group">
+            <label for="email">Email:<span class="required">*</span></label>
+            <input id="email" formControlName="email">
+            <div class="help">Ex: exemplo@dominio.com</div>
+            @if( email.invalid && email.touched ){
+                @if( email.hasError('required') ){
+                    <p class="erros">O email é obrigatório.</p>
+                }
+                @if( email.hasError('email') ){
+                    <p class="erros">O email deve ser válido.</p>
+                }
+            }
+        </div>
+    </div>
+    <h2 class="section-title">Endereço:</h2>
+    <div class="row" [formGroupName]="'endereco'">
+        <div class="form-group">
+            <label for="rua">Rua:<span class="required">*</span></label>
+            <input id="rua" formControlName="rua">
+            @if( rua.invalid && rua.touched ){
+                @if( rua.hasError('required') ){
+                    <p class="erros">A rua é obrigatória.</p>
+                }
+            }
+        </div>
+        <div class="form-group">
+            <label for="numero">Número:<span class="required">*</span></label>
+            <input id="numero" formControlName="numero">
+            @if( numero.invalid && numero.touched ){
+                @if( numero.hasError('required') ){
+                    @if( numero.hasError('required') ){
+                        <p class="erros">O número é obrigatório.</p>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <h2 class="section-title">Músicas:</h2>
+    <div class="row" [formArrayName]="'musicas'">
+        @for ( musica of musicas.controls; track $index) {
+            <div class="form-group">
+                <label for="musica-{{ $index }}">Música {{ $index + 1}}:<span class="required">*</span></label>
+                <input id="musica-{{ $index }}" [formControlName]="$index">
+                @if( musica.invalid && musica.touched ){
+                    @if( musica.hasError('required') ){
+                        <p class="erros">A música é obrigatória.</p>
+                    }
+                }
+            </div>
+        }
+    </div>
+    <div class="form-actions">
+        <button class="btn" type="submit" (click)="enviarForm()" [disabled]="!pessoaForm.valid">Enviar</button>
+    </div>
+</form>
+
+<div class="info-status">
+    <p>Validação do Formulário: <strong>{{ pessoaForm.valid ? 'Sim' : 'Não' }}</strong></p>
+    <p>Validação do Form Group de Endereço: <strong>{{ endereco.valid ? 'Sim' : 'Não' }}</strong></p>
+    <p>Validação do Form Array de Músicas: <strong>{{ musicas.valid ? 'Sim' : 'Não' }}</strong></p>
+</div>

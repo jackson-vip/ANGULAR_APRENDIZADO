@@ -9,6 +9,7 @@ import { ValidatorAssicrono } from './EXEMPLOS/validator-assicrono/validator-ass
 import { FormGroupComponent } from './EXEMPLOS/form-group/form-group';
 import { FormArrayComponent } from './EXEMPLOS/form-array/form-array';
 import { FormArrayComGroup } from './EXEMPLOS/form-array-com-group/form-array-com-group';
+import { FormBuilderComponent } from './EXEMPLOS/form-builder/form-builder';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormArrayComGroup } from './EXEMPLOS/form-array-com-group/form-array-co
     FormGroupComponent,
     FormArrayComponent,
     FormArrayComGroup,
+    FormBuilderComponent,
   ],
   imports: [
     BrowserModule,
