@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 
 @Component({
@@ -12,6 +12,9 @@ export class FormBuilderComponent implements OnInit {
   // O FormBuilder é usado para criar instâncias de FormGroup, FormControl e FormArray de forma mais concisa.
   // O FormArray é usado para gerenciar um array de FormControls, permitindo adicionar, remover e acessar controles dinamicamente.
   pessoaForm!: FormGroup;
+
+  // O Output é responsável por emitir eventos do componente filho para o componente pai.
+  @Output('enviarForm') enviarFormEmit = new EventEmitter<FormGroup>();
 
   constructor(private _fb: FormBuilder) {
     console.log('Exibe a instância do FormBuilder:', this._fb); // Exibe a instância do FormBuilder no console.
@@ -63,5 +66,6 @@ export class FormBuilderComponent implements OnInit {
 
   enviarForm() {
     console.log('Formulário enviado:', this.pessoaForm.value);
+    this.enviarFormEmit.emit(this.pessoaForm.value); // Emite o valor do formulário para o componente pai.
   }
 }

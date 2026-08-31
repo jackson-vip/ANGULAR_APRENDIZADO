@@ -1,0 +1,66 @@
+#my-form-teste {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+
+    & .section-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    & .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        & .form-group {
+            flex: 1 1 80px;
+            display: flex;
+            flex-direction: column;
+            
+            & label {
+                margin-bottom: 5px;
+                & .required {
+                    color: red;
+                }
+            }
+            & input {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+            & .help {
+                font-size: 0.875em;
+                color: #666;
+                margin-top: 5px;
+            }
+            & .erros {
+                color: red;
+                font-size: 0.875em;
+                margin-top: 5px;
+            }
+        }
+    }
+    .form-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.info-status {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    & p {
+        margin: 5px 0;
+    }
+}
